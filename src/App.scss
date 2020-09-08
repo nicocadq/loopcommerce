@@ -12,9 +12,8 @@ body {
 }
 
 #root {
+  font-family: $lato-font;
   min-height: 100vh;
   height: 100%;
-  display: flex;
-  align-items: stretch;
-  flex-direction: column;
+  margin: 0 auto;
 }

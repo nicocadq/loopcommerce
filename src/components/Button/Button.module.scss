@@ -1,0 +1,27 @@
+@import "../../sass/variables";
+
+.button {
+  background: none;
+  border: none;
+  font-family: $inter-font;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.primary {
+  @extend .button;
+  background-color: $deep-sky-blue;
+  color: $white;
+}
+
+.secondary {
+  @extend .button;
+  color: $deep-sky-blue;
+  border: 1px solid $deep-sky-blue;
+}
+
+.secondary--black {
+  @extend .button;
+  color: $black;
+  border: 1px solid $black;
+}
