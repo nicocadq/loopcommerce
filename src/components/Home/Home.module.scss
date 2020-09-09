@@ -1,0 +1,27 @@
+@import "../../sass/variables";
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 1160px;
+  width: 100%;
+
+  .new-arrivals-title {
+    color: #000000;
+    font-size: 28px;
+    font-weight: 200;
+    letter-spacing: 0.2px;
+    padding: 5px;
+  }
+
+  .products {
+    display: flex;
+    flex-wrap: wrap;
+
+    div {
+      margin: 10px;
+    }
+  }
+}
