@@ -18,13 +18,13 @@
 .secondary {
   @extend .button;
 
-  color: $deep-sky-blue;
   border: 1px solid $deep-sky-blue;
+  color: $deep-sky-blue;
 }
 
 .secondary--black {
   @extend .button;
 
-  color: $black;
   border: 1px solid $black;
+  color: $black;
 }
