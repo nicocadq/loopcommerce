@@ -16,14 +16,12 @@ const Header = () => {
         </Link>
         <Search />
         <div className={styles["buttons-group"]}>
-          <Button onClick={() => {}}>
-            <span>Login</span>
-          </Button>
+          <Button onClick={() => {}}>Login</Button>
           <Button buttonType="secondary" onClick={() => {}}>
-            <span>Sign Up</span>
+            Sign Up
           </Button>
           <Button buttonType="secondary--black" onClick={() => {}}>
-            <span>My Cart</span>
+            My Cart
           </Button>
         </div>
       </div>
