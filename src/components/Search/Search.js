@@ -2,19 +2,18 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
-import Button from "../../Button";
+import Button from "./../Button";
 
 import styles from "./Search.module.scss";
 
 const Search = () => {
-  const handleOnClick = () => {
-    console.log("asdjhaksjdha");
-  };
+  const handleOnClick = () => {};
+
   return (
     <div className={styles.search}>
       <form>
         <input type="text" placeholder="Search" />
-        <Button buttonType="primary" onClick={handleOnClick}>
+        <Button onClick={handleOnClick}>
           <FontAwesomeIcon icon={faSearch} />
         </Button>
       </form>

@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import Logo from "../Logo";
-import Search from "./Search";
+import Search from "../Search";
 import Button from "../Button";
 
 import styles from "./Header.module.scss";
@@ -16,7 +16,7 @@ const Header = () => {
         </Link>
         <Search />
         <div className={styles["buttons-group"]}>
-          <Button buttonType="primary" onClick={() => {}}>
+          <Button onClick={() => {}}>
             <span>Login</span>
           </Button>
           <Button buttonType="secondary" onClick={() => {}}>

@@ -3,19 +3,21 @@ import PropTypes from "prop-types";
 
 import styles from "./Button.module.scss";
 
-const Button = ({ children, buttonType, onClick }) => {
+const Button = ({ buttonType, children, onClick }) => {
   return (
-    <>
-      <button className={styles[buttonType]} onClick={onClick}>
-        {children}
-      </button>
-    </>
+    <button className={styles[buttonType]} onClick={onClick}>
+      {children}
+    </button>
   );
 };
 
+Button.defaultProps = {
+  buttonType: "primary",
+};
+
 Button.propTypes = {
-  children: PropTypes.element.isRequired,
   buttonType: PropTypes.string,
+  children: PropTypes.element.isRequired,
   onClick: PropTypes.func.isRequired,
 };
 
