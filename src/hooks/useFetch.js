@@ -13,7 +13,7 @@ export const useFetch = (endpoint) => {
           {}
         );
 
-        if (res.status < 200 || res.status > 400) throw Error(res.body.errors);
+        if (res.status < 200 || res.status >= 400) throw Error(res.body.errors);
 
         const resData = await res.json();
         setData(resData);
