@@ -5,7 +5,7 @@ import Button from "../Button";
 
 import styles from "./Product.module.scss";
 
-const Product = ({ description, id, imageURL, name, price }) => {
+const Product = ({ description, imageURL, name, price }) => {
   return (
     <div className={styles.product}>
       <div className={styles.image}>
@@ -22,7 +22,6 @@ const Product = ({ description, id, imageURL, name, price }) => {
 
 Product.propTypes = {
   description: PropTypes.string.isRequired,
-  id: PropTypes.number.isRequired,
   imageURL: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   price: PropTypes.string.isRequired,

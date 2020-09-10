@@ -9,9 +9,11 @@ import { useFetch } from "../../hooks";
 import styles from "./Home.module.scss";
 
 const Home = () => {
-  const { data, loading, error } = useFetch("products/");
-
-  const { products } = data;
+  const {
+    data: { products },
+    loading,
+    error,
+  } = useFetch("products/");
 
   return (
     <>
@@ -26,7 +28,6 @@ const Home = () => {
               <Product
                 key={id}
                 description={description}
-                id={id}
                 imageURL={faker.image.imageUrl()}
                 name={name}
                 price={price}
