@@ -15,7 +15,7 @@ const Product = ({ description, id, imageURL, name, price }) => {
         <p className={styles.name}>{name}</p>
         <span className={styles.price}>${price}</span>
       </div>
-      <Button onClick={() => {}}>ADD TO CART</Button>
+      <Button onClick={() => {}}>Add to cart</Button>
     </div>
   );
 };

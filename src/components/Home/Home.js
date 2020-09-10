@@ -4,14 +4,12 @@ import faker from "faker";
 import Header from "../Header";
 import Product from "../Product";
 import Spinner from "../Loader";
-import useFetch from "../../hooks/useFetch";
+import { useFetch } from "../../hooks";
 
 import styles from "./Home.module.scss";
 
 const Home = () => {
-  const { data, loading, error } = useFetch(
-    "https://onboarding-api-project.herokuapp.com/api/v1/products/"
-  );
+  const { data, loading, error } = useFetch("products/");
 
   const { products } = data;
 

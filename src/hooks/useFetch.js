@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const useFetch = (url) => {
+export const useFetch = (endpoint) => {
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -8,20 +8,24 @@ const useFetch = (url) => {
   useEffect(() => {
     const fetchResource = async () => {
       try {
-        const res = await fetch(url);
+        const res = await fetch(
+          `${process.env.REACT_APP_API_URL}${endpoint}`,
+          {}
+        );
+
+        if (res.status < 200 || res.status > 400) throw Error(res.body.errors);
+
         const resData = await res.json();
         setData(resData);
-        setLoading(false);
       } catch (e) {
-        setLoading(false);
         setError(e);
+      } finally {
+        setLoading(false);
       }
     };
 
     fetchResource();
-  }, [url]);
+  }, [endpoint]);
 
   return { data, loading, error };
 };
-
-export default useFetch;

@@ -5,11 +5,11 @@
   justify-content: center;
   flex-direction: column;
   margin: 0 auto;
-  max-width: 1160px;
+  max-width: $max-width;
   width: 100%;
 
   .new-arrivals-title {
-    color: #000000;
+    color: $black;
     font-size: 28px;
     font-weight: 200;
     letter-spacing: 0.2px;
