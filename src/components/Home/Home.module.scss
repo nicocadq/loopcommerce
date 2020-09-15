@@ -8,12 +8,29 @@
   max-width: $max-width;
   width: 100%;
 
+  .banner-container {
+    margin: 20px 0px;
+    width: 100%;
+  }
+
+  .services-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    div {
+      margin: 10px;
+    }
+  }
+
   .new-arrivals-title {
     color: $black;
     font-size: 28px;
     font-weight: 200;
     letter-spacing: 0.2px;
     padding: 5px;
+    margin-left: 5.5%;
   }
 
   .products {
