@@ -1,0 +1,44 @@
+@import "../../sass/variables";
+
+.product {
+  background-color: $white;
+  border-radius: 6px;
+  font-family: $inter-font;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 240px;
+  height: 340px;
+
+  .image {
+    object-fit: contain;
+    width: 186px;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .description {
+    border-top: 2px solid $grey;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 5px;
+    width: 80%;
+  }
+
+  .name {
+    color: $greyish-brown;
+    font-size: 15px;
+  }
+
+  .price {
+    font-size: 22px;
+  }
+
+  button {
+    text-transform: uppercase;
+  }
+}
