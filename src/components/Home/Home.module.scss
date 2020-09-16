@@ -41,4 +41,34 @@
       margin: 10px;
     }
   }
+
+  .pagination {
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    max-width: $max-width;
+    width: 90%;
+
+    div {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      width: 100%;
+
+      button {
+        border-radius: 0px;
+        border-right: 0px;
+        padding: 5px 8px;
+      }
+
+      button:first-child {
+        border-radius: $radius 0px 0px $radius;
+      }
+
+      button:last-child {
+        border-right: 1px solid;
+        border-radius: 0px $radius $radius 0px;
+      }
+    }
+  }
 }

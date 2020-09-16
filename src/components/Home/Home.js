@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import faker from "faker";
 import {
   faDollarSign,
@@ -11,6 +11,7 @@ import Product from "../Product";
 import Spinner from "../Loader";
 import Banner from "../Banner";
 import ServiceCard from "../ServiceCard";
+import Pagination from "../Pagination";
 import { useFetch } from "../../hooks";
 
 import BannerImage from "../../assets/images/banner.png";
@@ -18,11 +19,26 @@ import BannerImage from "../../assets/images/banner.png";
 import styles from "./Home.module.scss";
 
 const Home = () => {
+  const [totalPages, setTotalPages] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1);
+
   const {
     data: { products },
     loading,
     error,
-  } = useFetch("products/");
+    headersData,
+  } = useFetch(`products/?page=${currentPage}`);
+
+  const onPageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  useEffect(() => {
+    if (!isNaN(Number(headersData["total-pages"])))
+      setTotalPages(Number(headersData["total-pages"]));
+    if (!isNaN(Number(headersData["current-page"])))
+      setCurrentPage(Number(headersData["current-page"]));
+  }, [headersData]);
 
   return (
     <>
@@ -56,7 +72,7 @@ const Home = () => {
           <Spinner />
         ) : (
           <div className={styles.products}>
-            {products.map(({ description, id, name, price }) => (
+            {products?.map(({ description, id, name, price }) => (
               <Product
                 key={id}
                 description={description}
@@ -67,6 +83,13 @@ const Home = () => {
             ))}
           </div>
         )}
+        <div className={styles.pagination}>
+          <Pagination
+            onPageChange={onPageChange}
+            currentPage={currentPage}
+            totalPages={totalPages}
+          />
+        </div>
       </div>
     </>
   );
