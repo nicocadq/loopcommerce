@@ -1,33 +1,39 @@
 import React, { useState, useEffect } from "react";
 import faker from "faker";
-import {
-  faDollarSign,
-  faPhone,
-  faTruck,
-} from "@fortawesome/free-solid-svg-icons";
 
 import Header from "../Header";
 import Product from "../Product";
 import Spinner from "../Loader";
-import Banner from "../Banner";
-import ServiceCard from "../ServiceCard";
+import HighlightSection from "./HighlightSection";
 import Pagination from "../Pagination";
+import Search from "../Search";
+import ServerError from "../ServerError";
 import { useFetch } from "../../hooks";
-
-import BannerImage from "../../assets/images/banner.png";
 
 import styles from "./Home.module.scss";
 
 const Home = () => {
   const [totalPages, setTotalPages] = useState(1);
   const [currentPage, setCurrentPage] = useState(1);
+  const [totalProductsCount, setTotalProductsCount] = useState(0);
+  const [currentSearch, setCurrentSearch] = useState(null);
 
   const {
     data: { products },
     loading,
     error,
     headersData,
-  } = useFetch(`products/?page=${currentPage}`);
+  } = useFetch(
+    `${
+      currentSearch
+        ? `products/?filter=${currentSearch}&page=${currentPage}`
+        : `products/?page=${currentPage}`
+    }`
+  );
+
+  const onSearch = (value) => {
+    setCurrentSearch(value);
+  };
 
   const onPageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -38,40 +44,23 @@ const Home = () => {
       setTotalPages(Number(headersData["total-pages"]));
     if (!isNaN(Number(headersData["current-page"])))
       setCurrentPage(Number(headersData["current-page"]));
+    if (!isNaN(Number(headersData["total-count"])))
+      setTotalProductsCount(Number(headersData["total-count"]));
   }, [headersData]);
 
   return (
     <>
-      <Header />
+      <Header>
+        <Search onSearch={onSearch} />
+      </Header>
       <div className={styles.container}>
-        <div className={styles["banner-container"]}>
-          <Banner bannerImage={BannerImage} />
-        </div>
-        <div className={styles["services-container"]}>
-          <ServiceCard
-            backIconColor="red"
-            description="Have you finally just gave in to the temptation and read your horoscope"
-            icon={faDollarSign}
-            title="Reasonable Prices"
-          />
-          <ServiceCard
-            backIconColor="green"
-            description="Have you finally just gave in to the temptation and read your horoscope"
-            icon={faPhone}
-            title="Customer Support"
-          />
-          <ServiceCard
-            backIconColor="blue"
-            description="Have you finally just gave in to the temptation and read your horoscope"
-            icon={faTruck}
-            title="Express Delivery"
-          />
-        </div>
+        <HighlightSection />
         <h2 className={styles["new-arrivals-title"]}>New Arrivals</h2>
         {loading ? (
           <Spinner />
         ) : (
           <div className={styles.products}>
+            {(!totalProductsCount || error) && <ServerError />}
             {products?.map(({ description, id, name, price }) => (
               <Product
                 key={id}

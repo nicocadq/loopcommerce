@@ -1,0 +1,21 @@
+@import "../../sass/variables";
+
+.container {
+  background-color: $light-red;
+  border: 1px solid $red;
+  border-radius: $radius;
+  color: $red;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  min-width: 274px;
+  padding: 10px;
+
+  .icon {
+    background-color: $red;
+    border-radius: 50%;
+    color: $light-red;
+    font-size: 12px;
+    padding: 5px 8px;
+  }
+}

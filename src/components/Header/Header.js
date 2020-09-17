@@ -1,32 +1,32 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 import Logo from "../Logo";
-import Search from "../Search";
-import Button from "../Button";
+import UserAccount from "./UserAccount";
 
 import styles from "./Header.module.scss";
 
-const Header = () => {
+const Header = ({ children }) => {
   return (
     <div className={styles.header}>
       <div className={styles.container}>
         <Link to="/">
           <Logo />
         </Link>
-        <Search />
-        <div className={styles["buttons-group"]}>
-          <Button onClick={() => {}}>Login</Button>
-          <Button buttonType="secondary" onClick={() => {}}>
-            Sign Up
-          </Button>
-          <Button buttonType="secondary--black" onClick={() => {}}>
-            My Cart
-          </Button>
-        </div>
+        {children}
+        <UserAccount />
       </div>
     </div>
   );
+};
+
+Header.defaultProps = {
+  children: null,
+};
+
+Header.propTypes = {
+  children: PropTypes.node,
 };
 
 export default Header;
