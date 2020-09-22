@@ -44,10 +44,6 @@ const Home = () => {
       setTotalPages(Number(headersData["total-pages"]));
     }
 
-    if (!isNaN(Number(headersData["current-page"]))) {
-      setCurrentPage(Number(headersData["current-page"]));
-    }
-
     if (!isNaN(Number(headersData["total-count"]))) {
       setTotalProductsCount(Number(headersData["total-count"]));
     }
