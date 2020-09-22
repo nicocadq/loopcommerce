@@ -4,7 +4,7 @@ import Button from "../Button";
 
 import styles from "./Header.module.scss";
 
-const UserAccount = () => {
+const Actions = () => {
   return (
     <div className={styles["buttons-group"]}>
       <Button onClick={() => {}}>Login</Button>
@@ -18,4 +18,4 @@ const UserAccount = () => {
   );
 };
 
-export default UserAccount;
+export default Actions;

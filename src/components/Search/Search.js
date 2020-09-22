@@ -8,8 +8,7 @@ import Button from "./../Button";
 import styles from "./Search.module.scss";
 
 const sanitizer = (value) => {
-  const trimmedValue = value.trim();
-  if (trimmedValue) return trimmedValue;
+  return value.trim();
 };
 
 const Search = ({ onSearch }) => {

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 import Logo from "../Logo";
-import UserAccount from "./UserAccount";
+import Actions from "./Actions";
 
 import styles from "./Header.module.scss";
 
@@ -15,7 +15,7 @@ const Header = ({ children }) => {
           <Logo />
         </Link>
         {children}
-        <UserAccount />
+        <Actions />
       </div>
     </div>
   );

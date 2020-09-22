@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import faker from "faker";
 
-import Header from "../Header";
-import Product from "../Product";
-import Spinner from "../Loader";
 import HighlightSection from "./HighlightSection";
-import Pagination from "../Pagination";
+import Header from "../Header";
 import Search from "../Search";
 import ServerError from "../ServerError";
+import Spinner from "../Loader";
+import Product from "../Product";
+import Pagination from "../Pagination";
 import { useFetch } from "../../hooks";
 
 import styles from "./Home.module.scss";
@@ -40,12 +40,17 @@ const Home = () => {
   };
 
   useEffect(() => {
-    if (!isNaN(Number(headersData["total-pages"])))
+    if (!isNaN(Number(headersData["total-pages"]))) {
       setTotalPages(Number(headersData["total-pages"]));
-    if (!isNaN(Number(headersData["current-page"])))
+    }
+
+    if (!isNaN(Number(headersData["current-page"]))) {
       setCurrentPage(Number(headersData["current-page"]));
-    if (!isNaN(Number(headersData["total-count"])))
+    }
+
+    if (!isNaN(Number(headersData["total-count"]))) {
       setTotalProductsCount(Number(headersData["total-count"]));
+    }
   }, [headersData]);
 
   return (
