@@ -1,0 +1,98 @@
+@import "../../sass/variables";
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.button {
+  background: none;
+  border: none;
+  border-radius: $radius;
+  font-family: $inter-font;
+  padding: 10px;
+}
+
+.primary {
+  @extend .button;
+
+  background-color: $deep-sky-blue;
+  color: $white;
+}
+
+.secondary {
+  @extend .button;
+
+  border: 1px solid $deep-sky-blue;
+  color: $deep-sky-blue;
+}
+
+.secondary--black {
+  @extend .button;
+
+  border: 1px solid $light-black;
+  color: $light-black;
+}
+
+.input {
+  background-color: $background-input;
+  border: 1px solid $border-input;
+  border-radius: $radius;
+  height: 40px;
+  padding: 10px 16px;
+  width: 270px;
+
+  &::placeholder {
+    color: $placeholder-input;
+  }
+
+  &.error {
+    background-color: $light-red;
+    border-color: $red;
+    color: $red;
+  }
+
+  &.error::placeholder {
+    color: $red;
+  }
+}
+
+.input-error {
+  color: $red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.label {
+  color: $light-black;
+  width: 100%;
+
+  .required-text {
+    color: #363636;
+    font-size: 14px;
+    font-style: italic;
+    margin-left: 5px;
+  }
+}
+
+.select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  background: url("../../assets/images/arrow-select.svg") $background-input
+    no-repeat calc(100% - 10px) !important;
+
+  border: 1px solid $border-input;
+  border-radius: $radius;
+  color: $placeholder-input;
+  height: 40px;
+  padding: 10px 16px;
+  width: 100%;
+
+  &.error {
+    background-color: $light-red;
+    border-color: $red;
+    color: $red;
+  }
+}

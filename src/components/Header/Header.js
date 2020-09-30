@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import Logo from "../Logo";
 import Search from "../Search";
-import Button from "../Button";
+import { Button } from "../Form";
 
 import styles from "./Header.module.scss";
 
