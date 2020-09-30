@@ -10,6 +10,7 @@ const Pagination = ({ currentPage, onPageChange, totalPages }) => {
 
   const pagesToBeShown = useMemo(() => {
     const pages = [1];
+
     if (currentPage <= 4 || lastPage <= 6) {
       for (let i = 2; i < 6 && i < lastPage; i += 1) {
         pages.push(i);
@@ -23,9 +24,11 @@ const Pagination = ({ currentPage, onPageChange, totalPages }) => {
       pages.push(currentPage);
       pages.push(currentPage + 1);
     }
+
     if (!pages.includes(lastPage)) {
       pages.push(lastPage);
     }
+
     return pages;
   }, [currentPage, lastPage]);
 
