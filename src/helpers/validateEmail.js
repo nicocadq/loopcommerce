@@ -3,7 +3,7 @@ export function validateEmail(email) {
 
   if (!email) {
     error = "Email is required";
-  } else if (!/\S+@\S+\.\S+/.test(email)) {
+  } else if (!/^[\w-]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)) {
     error = "Invalid email.";
   }
 

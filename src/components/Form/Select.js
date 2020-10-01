@@ -5,29 +5,63 @@ import Option from "./Option";
 
 import styles from "./Form.module.scss";
 
-const Select = ({ children, error, onChange, placeholder, ...rest }) => {
+const Select = ({
+  error,
+  id,
+  isRequired,
+  onChange,
+  options,
+  placeholder,
+  label,
+  ...leftoverProps
+}) => {
   return (
     <>
+      <label className={styles.label} htmlFor={id} {...leftoverProps}>
+        {label}
+        {isRequired && (
+          <span className={styles["required-text"]}>(Required)</span>
+        )}
+      </label>
       <select
         className={`${error ? styles.error : ""} ${styles.select}`}
         onChange={onChange}
         placeholder={placeholder}
-        {...rest}
+        {...leftoverProps}
       >
-        {children}
+        <Option className={styles.placeholder} value="">
+          {placeholder}
+        </Option>
+
+        {options.map((option) => (
+          <Option key={option.value} value={option.value}>
+            {option.label}
+          </Option>
+        ))}
       </select>
       {error && <p className={styles["input-error"]}>{error}</p>}
     </>
   );
 };
 
-Select.Option = Option;
+Select.defaultProps = {
+  error: "",
+  isRequired: false,
+};
 
 Select.propTypes = {
-  children: PropTypes.elementType.isRequired,
   error: PropTypes.string,
+  id: PropTypes.string.isRequired,
+  isRequired: PropTypes.bool,
   onChange: PropTypes.func.isRequired,
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string.isRequired,
+      value: PropTypes.string.isRequired,
+    })
+  ).isRequired,
   placeholder: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
 };
 
 export default Select;

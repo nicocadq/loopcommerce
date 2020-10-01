@@ -3,13 +3,11 @@ import PropTypes from "prop-types";
 
 import styles from "./Form.module.scss";
 
-const Option = ({ children, value, ...rest }) => {
+const Option = ({ children, value, ...leftoverProps }) => {
   return (
-    <>
-      <option className={styles.option} value={value} {...rest}>
-        {children}
-      </option>
-    </>
+    <option className={styles.option} value={value} {...leftoverProps}>
+      {children}
+    </option>
   );
 };
 

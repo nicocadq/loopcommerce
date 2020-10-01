@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 
 import styles from "./Form.module.scss";
 
-const Button = ({ buttonType, children, onClick, ...rest }) => {
+const Button = ({ buttonType, children, onClick, ...leftoverProps }) => {
   return (
-    <button className={styles[buttonType]} onClick={onClick} {...rest}>
+    <button className={styles[buttonType]} onClick={onClick} {...leftoverProps}>
       {children}
     </button>
   );

@@ -11,6 +11,10 @@
   border-radius: $radius;
   font-family: $inter-font;
   padding: 10px;
+
+  &:disabled {
+    opacity: 0.5;
+  }
 }
 
 .primary {
@@ -68,7 +72,7 @@
   width: 100%;
 
   .required-text {
-    color: #363636;
+    color: $dark-gray;
     font-size: 14px;
     font-style: italic;
     margin-left: 5px;

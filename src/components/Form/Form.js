@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 
 import { Button } from "./Button";
 import Input from "./Input";
-import Label from "./Label";
 import Select from "./Select";
 
 import styles from "./Form.module.scss";
@@ -20,7 +19,6 @@ const Form = ({ children, onSubmit }) => {
 
 Form.Button = Button;
 Form.Input = Input;
-Form.Label = Label;
 Form.Select = Select;
 
 Form.propTypes = {
