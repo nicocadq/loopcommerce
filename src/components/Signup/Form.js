@@ -42,7 +42,7 @@ const SignupForm = () => {
   );
 
   const signup = (data) => {
-    setTimeout(() => execute(), 3123);
+    execute();
   };
 
   useEffect(() => {
