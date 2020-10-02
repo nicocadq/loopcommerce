@@ -1,0 +1,56 @@
+@import "../../sass/variables";
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 100vh;
+  padding-top: 30px;
+
+  .form {
+    background-color: $white;
+    border-radius: $radius;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    height: 100%;
+    max-width: 330px;
+    padding: 0 30px 30px 30px;
+    width: 90%;
+
+    .logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 120px;
+      width: 100%;
+    }
+
+    label {
+      display: block;
+      margin-top: 14px;
+    }
+
+    input,
+    select {
+      margin: 5px 0px 0px 0px;
+    }
+
+    button {
+      margin-top: 15px;
+      text-transform: uppercase;
+      width: 100%;
+    }
+  }
+
+  .have-an-account {
+    margin: 10px 0px;
+
+    a {
+      color: $deep-sky-blue;
+      margin-left: 5px;
+      text-decoration: none;
+    }
+  }
+}

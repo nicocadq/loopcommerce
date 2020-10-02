@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
-import Button from "./../Button";
+import { Button } from "./../Form";
 
 import styles from "./Search.module.scss";
 
