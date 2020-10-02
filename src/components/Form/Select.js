@@ -17,7 +17,7 @@ const Select = ({
 }) => {
   return (
     <>
-      <label className={styles.label} htmlFor={id} {...leftoverProps}>
+      <label className={styles.label} htmlFor={id}>
         {label}
         {isRequired && (
           <span className={styles["required-text"]}>(Required)</span>
@@ -33,9 +33,9 @@ const Select = ({
           {placeholder}
         </Option>
 
-        {options.map((option) => (
-          <Option key={option.value} value={option.value}>
-            {option.label}
+        {options.map(({ label, value, ...leftoverProps }) => (
+          <Option key={value} value={value} {...leftoverProps}>
+            {label}
           </Option>
         ))}
       </select>

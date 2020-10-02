@@ -15,7 +15,7 @@ const Input = ({
 }) => {
   return (
     <>
-      <label className={styles.label} htmlFor={id} {...leftoverProps}>
+      <label className={styles.label} htmlFor={id}>
         {label}
         {isRequired && (
           <span className={styles["required-text"]}>(Required)</span>
