@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import store from "./store";
 import HomePage from "./pages/HomePage";
 import SignupPage from "./pages/SignupPage";
+import LoginPage from "./pages/LoginPage";
 
 import "./App.scss";
 
@@ -15,6 +16,9 @@ const App = () => {
         <Switch>
           <Route path="/signup">
             <SignupPage />
+          </Route>
+          <Route path="/login">
+            <LoginPage />
           </Route>
           <Route path="/">
             <HomePage />
