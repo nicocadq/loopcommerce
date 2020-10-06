@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 
+import getHeaders from "../utils/getHeaders";
+
 export const useFetch = (endpoint) => {
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(true);
@@ -16,15 +18,7 @@ export const useFetch = (endpoint) => {
 
         if (res.status < 200 || res.status >= 400) throw Error(res.body.errors);
 
-        const getHeaders = () => {
-          const headers = {};
-          res.headers.forEach((value, name) => {
-            headers[name] = value;
-          });
-          return headers;
-        };
-
-        setHeadersData(getHeaders);
+        setHeadersData(getHeaders(res));
         const resData = await res.json();
         setData(resData);
       } catch (e) {
