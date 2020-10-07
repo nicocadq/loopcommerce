@@ -65,6 +65,7 @@ const Home = () => {
             {products?.map(({ description, id, name, price }) => (
               <Product
                 key={id}
+                id={id}
                 description={description}
                 imageURL={faker.image.imageUrl()}
                 name={name}
