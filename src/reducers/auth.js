@@ -1,6 +1,6 @@
 import Types from "../actions/types";
 
-const initialSate = {
+const initialSate = JSON.parse(localStorage.getItem("user")) || {
   user: null,
   headers: null,
 };
@@ -10,6 +10,8 @@ export default (state = initialSate, action) => {
     case Types.SET_USER:
       const { user, headers } = action.payload;
 
+      localStorage.setItem("user", JSON.stringify({ user, headers }));
+
       return {
         ...state,
         user,
@@ -17,6 +19,10 @@ export default (state = initialSate, action) => {
       };
 
     case Types.DELETE_USER:
+      localStorage.removeItem("user");
+
+      return { ...state, ...initialSate };
+
     default:
       return state;
   }

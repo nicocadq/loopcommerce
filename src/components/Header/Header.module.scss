@@ -18,9 +18,45 @@
 
     .buttons-group {
       display: flex;
+      align-items: center;
 
-      button {
+      button,
+      div {
         margin-right: 10px;
+      }
+    }
+
+    .user-container {
+      color: $greyish-brown;
+      position: relative;
+
+      .icon {
+        margin-right: 8px;
+      }
+
+      .options-drop {
+        background-color: $white;
+        border-radius: $radius;
+        box-shadow: 0 0 6px 0 rgba(84, 84, 84, 0.1);
+        position: absolute;
+        top: 30px;
+        right: 5px;
+        width: 150px;
+        z-index: 2;
+
+        & > * {
+          width: 100%;
+        }
+
+        button {
+          border: none;
+          text-align: right;
+        }
+
+        button:nth-child(odd) {
+          border-bottom: 1px solid $deep-gray;
+          border-radius: 0;
+        }
       }
     }
   }
