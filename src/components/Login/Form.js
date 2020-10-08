@@ -42,10 +42,9 @@ const LoginForm = () => {
   };
 
   useEffect(() => {
-    if (Object.keys(data).length > 0) {
+    if (Object.keys(data).length) {
       const accessToken = headersData["access-token"];
       const { uid, client } = headersData;
-      console.log(headersData);
       dispatch({
         type: Types.SET_USER,
         payload: { user: data, headers: { accessToken, client, uid } },

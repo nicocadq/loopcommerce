@@ -45,7 +45,7 @@ const SignupForm = () => {
   };
 
   useEffect(() => {
-    if (Object.keys(data).length > 0) {
+    if (Object.keys(data).length) {
       const accessToken = headersData["access-token"];
       const { uid, client } = headersData;
       dispatch({
