@@ -37,7 +37,7 @@
       .options-drop {
         background-color: $white;
         border-radius: $radius;
-        box-shadow: 0 0 6px 0 rgba(84, 84, 84, 0.1);
+        box-shadow: 0 0 6px 0 $black-shadow-color;
         position: absolute;
         top: 30px;
         right: 5px;

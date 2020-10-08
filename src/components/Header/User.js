@@ -14,7 +14,7 @@ const User = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleOpenDrop = () => {
-    setIsOpen(!isOpen);
+    setIsOpen((isOpen) => !isOpen);
   };
 
   const handleSignOut = () => {

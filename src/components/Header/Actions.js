@@ -19,14 +19,10 @@ const Actions = () => {
     history.push("/signup");
   };
 
-  console.log(user);
-
   return (
     <div className={styles["buttons-group"]}>
       {user ? (
-        <>
-          <User />
-        </>
+        <User />
       ) : (
         <>
           <Button onClick={goToLogIn}>Login</Button>
