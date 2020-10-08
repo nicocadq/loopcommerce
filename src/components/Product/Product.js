@@ -13,7 +13,7 @@ const Product = ({ description, id, imageURL, name, price }) => {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const handleBuyNow = () => {
+  const handleGoToProduct = (event) => {
     dispatch({
       type: Types.SET_CURRENT_PRODUCT,
       product: { description, id, imageURL, name, price },
@@ -22,8 +22,15 @@ const Product = ({ description, id, imageURL, name, price }) => {
     history.push(`/product/${id}`);
   };
 
+  const handleBuyNow = (event) => {
+    event.stopPropagation();
+  };
+
   return (
-    <div className={styles.product}>
+    <div
+      className={styles.product}
+      onClick={(event) => handleGoToProduct(event)}
+    >
       <div className={styles.image}>
         <img src={imageURL} alt={description} />
       </div>
@@ -31,7 +38,7 @@ const Product = ({ description, id, imageURL, name, price }) => {
         <p className={styles.name}>{name}</p>
         <span className={styles.price}>${price}</span>
       </div>
-      <Button onClick={handleBuyNow}>Buy Now</Button>
+      <Button onClick={(event) => handleBuyNow(event)}>Buy Now</Button>
     </div>
   );
 };

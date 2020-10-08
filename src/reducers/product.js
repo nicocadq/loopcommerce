@@ -12,12 +12,6 @@ export default (state = initialSate, action) => {
         ...product,
       };
 
-    case Types.DELETE_USER:
-      return {
-        ...state,
-        ...initialSate,
-      };
-
     default:
       return state;
   }
