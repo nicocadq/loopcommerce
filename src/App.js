@@ -5,11 +5,8 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import store from "./store";
 import HomePage from "./pages/HomePage";
 import SignupPage from "./pages/SignupPage";
-<<<<<<< HEAD
 import LoginPage from "./pages/LoginPage";
-=======
 import ProductDetailPage from "./pages/ProductDetailPage";
->>>>>>> Added product detail
 
 import "./App.scss";
 
