@@ -1,19 +1,36 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 import Button from "../Button";
+import User from "./User";
 
 import styles from "./Header.module.scss";
 
 const Actions = () => {
+  const history = useHistory();
+  const user = useSelector((state) => state.auth.user);
+
+  const goToLogIn = () => {
+    history.push("/login");
+  };
+
+  const goToSignUp = () => {
+    history.push("/signup");
+  };
+
   return (
     <div className={styles["buttons-group"]}>
-      <Button onClick={() => {}}>Login</Button>
-      <Button buttonType="secondary" onClick={() => {}}>
-        Sign Up
-      </Button>
-      <Button buttonType="secondary--black" onClick={() => {}}>
-        My Cart
-      </Button>
+      {user ? (
+        <User />
+      ) : (
+        <>
+          <Button onClick={goToLogIn}>Login</Button>
+          <Button buttonType="secondary" onClick={goToSignUp}>
+            Sign Up
+          </Button>
+        </>
+      )}
     </div>
   );
 };
