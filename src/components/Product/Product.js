@@ -24,6 +24,8 @@ const Product = ({ description, id, imageURL, name, price }) => {
 
   const handleBuyNow = (event) => {
     event.stopPropagation();
+
+    history.push("/thank-you-page");
   };
 
   return (

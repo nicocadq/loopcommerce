@@ -1,0 +1,50 @@
+@import "../../sass/variables";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+
+  .content {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    height: 100%;
+    margin-top: 30px;
+    width: 90%;
+
+    .image-container {
+      margin: 30px;
+      min-width: 320px;
+      max-width: 40%;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .text-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      h3 {
+        color: $greyish-brown;
+        font-size: 34px;
+        letter-spacing: 1.2px;
+      }
+
+      p {
+        color: $light-greyish-brown;
+        letter-spacing: 0.4px;
+        margin-top: 20px;
+      }
+
+      .actions {
+        margin-top: 10px;
+      }
+    }
+  }
+}
