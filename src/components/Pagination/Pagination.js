@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from "react";
 import PropTypes from "prop-types";
 
-import Button from "../Button";
+import { Button } from "../Form";
 
 const Pagination = ({ currentPage, onPageChange, totalPages }) => {
   const [lastPage, setLastPage] = useState(1);
@@ -50,7 +50,11 @@ const Pagination = ({ currentPage, onPageChange, totalPages }) => {
 
   return (
     <div>
-      <Button buttonType="secondary--black" onClick={handleOnPreviousClick}>
+      <Button
+        buttonType="secondary--black"
+        onClick={handleOnPreviousClick}
+        disabled={isUserAtBeginning}
+      >
         Previous
       </Button>
       {pagesToBeShown.map((pageNumber, index) => {
@@ -86,7 +90,11 @@ const Pagination = ({ currentPage, onPageChange, totalPages }) => {
           </Button>
         );
       })}
-      <Button buttonType="secondary--black" onClick={handleOnNextClick}>
+      <Button
+        buttonType="secondary--black"
+        onClick={handleOnNextClick}
+        disabled={isUserAtTheEnd}
+      >
         Next
       </Button>
     </div>
