@@ -27,10 +27,7 @@ const Product = ({ description, id, imageURL, name, price }) => {
   };
 
   return (
-    <div
-      className={styles.product}
-      onClick={(event) => handleGoToProduct(event)}
-    >
+    <div className={styles.product} onClick={handleGoToProduct}>
       <div className={styles.image}>
         <img src={imageURL} alt={description} />
       </div>
@@ -38,7 +35,7 @@ const Product = ({ description, id, imageURL, name, price }) => {
         <p className={styles.name}>{name}</p>
         <span className={styles.price}>${price}</span>
       </div>
-      <Button onClick={(event) => handleBuyNow(event)}>Buy Now</Button>
+      <Button onClick={handleBuyNow}>Buy Now</Button>
     </div>
   );
 };
