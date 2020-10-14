@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 
 import Form from "../Form";
 import Logo from "../Logo";
+import ServerError from "../ServerError";
 import { useForm, useDispatchableFetch } from "../../hooks";
 import * as _ from "../../helpers";
 import Types from "../../actions/types";
@@ -32,13 +33,16 @@ const LoginForm = () => {
     body: JSON.stringify(values),
   };
 
-  const { data, loading, error, execute, headersData } = useDispatchableFetch(
-    "auth/sign_in",
-    options
-  );
+  const {
+    data,
+    loading,
+    serverErrors,
+    execute,
+    headersData,
+  } = useDispatchableFetch("auth/sign_in", options);
 
   const login = () => {
-    execute();
+    if (Object.keys(errors).length) execute();
   };
 
   useEffect(() => {
@@ -71,7 +75,6 @@ const LoginForm = () => {
             placeholder="jhondoe@gmail.com"
             label="Email"
           />
-
           <Form.Input
             error={errors.password}
             id="password"
@@ -82,6 +85,12 @@ const LoginForm = () => {
             placeholder="Type your password"
             label="Password"
           />
+
+          {serverErrors?.map((error) => (
+            <div className={styles.errors} key={error}>
+              <ServerError message={error} />
+            </div>
+          ))}
 
           <Form.Button type="submit" disabled={loading}>
             {loading ? "Loading..." : "Log In"}

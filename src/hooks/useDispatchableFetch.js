@@ -5,7 +5,7 @@ import getHeaders from "../utils/getHeaders";
 export const useDispatchableFetch = (endpoint, options) => {
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [serverErrors, setServerErrors] = useState([]);
   const [headersData, setHeadersData] = useState({});
 
   const execute = useCallback(async () => {
@@ -17,17 +17,26 @@ export const useDispatchableFetch = (endpoint, options) => {
         options
       );
 
-      if (res.status < 200 || res.status >= 400) throw Error(res.body.errors);
+      if (res.status < 200 || res.status >= 400) {
+        const { errors } = await res.json();
+        throw Error(errors);
+      }
 
       setHeadersData(getHeaders(res));
       const resData = await res.json();
       setData(resData);
     } catch (e) {
-      setError(e);
+      const { message } = e;
+      const errorMessage =
+        message === "[object Object]" ? "ServerError" : message;
+
+      setServerErrors((previousServerErrors) => {
+        return [...previousServerErrors, errorMessage];
+      });
     } finally {
       setLoading(false);
     }
   }, [endpoint, options]);
 
-  return { data, loading, error, execute, headersData };
+  return { data, loading, serverErrors, execute, headersData };
 };

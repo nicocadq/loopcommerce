@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 
 import Form from "../Form";
 import Logo from "../Logo";
+import ServerError from "../ServerError";
 import { useForm, useDispatchableFetch } from "../../hooks";
 import * as _ from "../../helpers";
 import Types from "../../actions/types";
@@ -35,13 +36,16 @@ const SignupForm = () => {
     body: JSON.stringify(values),
   };
 
-  const { data, loading, error, execute, headersData } = useDispatchableFetch(
-    "auth",
-    options
-  );
+  const {
+    data,
+    loading,
+    serverErrors,
+    execute,
+    headersData,
+  } = useDispatchableFetch("auth", options);
 
   const signup = () => {
-    execute();
+    if (Object.keys(errors).length) execute();
   };
 
   useEffect(() => {
@@ -130,6 +134,12 @@ const SignupForm = () => {
             placeholder="Type your password"
             label="Password"
           />
+
+          {serverErrors?.map((error) => (
+            <div className={styles.errors} key={error}>
+              <ServerError message={error} />
+            </div>
+          ))}
 
           <Form.Button type="submit" disabled={loading}>
             {loading ? "Loading..." : "Sign up"}
