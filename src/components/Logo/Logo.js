@@ -6,7 +6,7 @@ import LogoImageSM from "../../assets/images/logo-sm.svg";
 const Logo = () => {
   return (
     <picture>
-      <source srcset={LogoImageSM} media="(max-width: 670px)" />
+      <source srcSet={LogoImageSM} media="(max-width: 670px)" />
       <img src={LogoImage} alt="Logo" />
     </picture>
   );
