@@ -10,7 +10,7 @@ import Product from "../Product";
 import Pagination from "../Pagination";
 import { useFetch, useWindowSize } from "../../hooks";
 
-import { SCREEN_SM } from "../../utils/constants";
+import { SCREEN_SM } from "../../utils/breakpoints";
 
 import styles from "./Home.module.scss";
 
