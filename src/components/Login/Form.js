@@ -6,7 +6,7 @@ import Form from "../Form";
 import Logo from "../Logo";
 import ServerError from "../ServerError";
 import { useForm, useDispatchableFetch } from "../../hooks";
-import deleteEmptyProps from "../../utils/deleteEmptyProps";
+import { deleteEmptyProps } from "../../utils/objects";
 import * as _ from "../../helpers";
 import Types from "../../actions/types";
 

@@ -10,7 +10,7 @@ import * as _ from "../../helpers";
 import Types from "../../actions/types";
 
 import styles from "./Signup.module.scss";
-import deleteEmptyProps from "../../utils/deleteEmptyProps";
+import { deleteEmptyProps } from "../../utils/objects";
 
 const validateForm = (values) => {
   const errors = {};
