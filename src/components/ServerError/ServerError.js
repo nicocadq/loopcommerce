@@ -17,7 +17,7 @@ const ServerError = ({ message }) => {
 };
 
 ServerError.defaultProps = {
-  message: " There was a server error, please try again later.",
+  message: "There was a server error, please try again later.",
 };
 
 ServerError.propTypes = {

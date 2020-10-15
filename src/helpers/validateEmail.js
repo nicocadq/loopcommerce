@@ -1,5 +1,5 @@
 export function validateEmail(email) {
-  let error = "";
+  let error;
 
   if (!email) {
     error = "Email is required";

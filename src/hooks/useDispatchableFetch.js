@@ -19,20 +19,18 @@ export const useDispatchableFetch = (endpoint, options) => {
 
       if (res.status < 200 || res.status >= 400) {
         const { errors } = await res.json();
-        throw Error(errors);
+        const errorMessage = Object.entries(errors[0]);
+        throw Error(errorMessage);
       }
 
       setHeadersData(getHeaders(res));
       const resData = await res.json();
       setData(resData);
-    } catch (e) {
-      const { message } = e;
-      const errorMessage =
-        message === "[object Object]" ? "ServerError" : message;
-
-      setServerErrors((previousServerErrors) => {
-        return [...previousServerErrors, errorMessage];
-      });
+    } catch ({ message }) {
+      setServerErrors((previousServerErrors) => [
+        ...previousServerErrors,
+        message,
+      ]);
     } finally {
       setLoading(false);
     }

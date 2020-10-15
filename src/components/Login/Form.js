@@ -6,6 +6,7 @@ import Form from "../Form";
 import Logo from "../Logo";
 import ServerError from "../ServerError";
 import { useForm, useDispatchableFetch } from "../../hooks";
+import deleteEmptyProps from "../../utils/deleteEmptyProps";
 import * as _ from "../../helpers";
 import Types from "../../actions/types";
 
@@ -17,7 +18,7 @@ const validateForm = (values) => {
   errors.email = _.validateEmail(values.email);
   errors.password = _.validatePassword(values.password);
 
-  return errors;
+  return deleteEmptyProps(errors);
 };
 
 const LoginForm = () => {
@@ -41,9 +42,7 @@ const LoginForm = () => {
     headersData,
   } = useDispatchableFetch("auth/sign_in", options);
 
-  const login = () => {
-    if (Object.keys(errors).length) execute();
-  };
+  const login = () => execute();
 
   useEffect(() => {
     if (Object.keys(data).length) {
@@ -59,7 +58,7 @@ const LoginForm = () => {
 
   return (
     <div className={styles.form}>
-      <Form onSubmit={(event) => handleOnSubmit(event, login())}>
+      <Form onSubmit={(event) => handleOnSubmit(event, login)}>
         <div className={styles.logo}>
           <Link to="/">
             <Logo />

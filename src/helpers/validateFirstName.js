@@ -1,5 +1,5 @@
 export function validateFirstName(firstName) {
-  let error = "";
+  let error;
 
   if (!firstName) {
     error = "First Name is required.";

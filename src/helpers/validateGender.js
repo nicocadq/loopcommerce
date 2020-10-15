@@ -1,5 +1,5 @@
 export function validateGender(gender) {
-  let error = "";
+  let error;
 
   if (!gender) {
     error = "Gender is required";

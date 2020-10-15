@@ -10,6 +10,7 @@ import * as _ from "../../helpers";
 import Types from "../../actions/types";
 
 import styles from "./Signup.module.scss";
+import deleteEmptyProps from "../../utils/deleteEmptyProps";
 
 const validateForm = (values) => {
   const errors = {};
@@ -20,7 +21,7 @@ const validateForm = (values) => {
   errors.last_name = _.validateLastName(values.last_name);
   errors.gender = _.validateGender(values.gender);
 
-  return errors;
+  return deleteEmptyProps(errors);
 };
 
 const SignupForm = () => {
@@ -44,9 +45,7 @@ const SignupForm = () => {
     headersData,
   } = useDispatchableFetch("auth", options);
 
-  const signup = () => {
-    if (Object.keys(errors).length) execute();
-  };
+  const signup = () => execute();
 
   useEffect(() => {
     if (Object.keys(data).length) {
@@ -62,7 +61,7 @@ const SignupForm = () => {
 
   return (
     <div className={styles.form}>
-      <Form onSubmit={(event) => handleOnSubmit(event, signup())}>
+      <Form onSubmit={(event) => handleOnSubmit(event, signup)}>
         <div className={styles.logo}>
           <Link to="/">
             <Logo />

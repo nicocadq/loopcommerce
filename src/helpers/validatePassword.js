@@ -1,5 +1,5 @@
 export function validatePassword(password) {
-  let error = "";
+  let error;
 
   if (!password) {
     error = "Password is required.";
