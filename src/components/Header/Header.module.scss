@@ -44,6 +44,19 @@
         width: 150px;
         z-index: 2;
 
+        &:after {
+          border-style: solid;
+          border-width: 0 10px 10px 10px;
+          border-color: transparent transparent $white transparent;
+          content: "";
+          height: 0;
+          position: absolute;
+          right: 10px;
+          top: -25%;
+          width: 0;
+          z-index: 2;
+        }
+
         & > * {
           width: 100%;
         }

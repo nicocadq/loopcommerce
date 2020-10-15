@@ -17,6 +17,8 @@
       height: 100%;
 
       &:focus {
+        outline: none;
+        border: 2px solid $deep-sky-blue;
         border-radius: $radius 0 0 $radius;
       }
     }

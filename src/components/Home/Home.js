@@ -8,7 +8,9 @@ import ServerError from "../ServerError";
 import Spinner from "../Loader";
 import Product from "../Product";
 import Pagination from "../Pagination";
-import { useFetch } from "../../hooks";
+import { useFetch, useWindowSize } from "../../hooks";
+
+import { SCREEN_SM } from "../../utils/breakpoints";
 
 import styles from "./Home.module.scss";
 
@@ -17,6 +19,7 @@ const Home = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalProductsCount, setTotalProductsCount] = useState(0);
   const [currentSearch, setCurrentSearch] = useState(null);
+  const windowSize = useWindowSize();
 
   const {
     data: { products },
@@ -52,7 +55,7 @@ const Home = () => {
   return (
     <>
       <Header>
-        <Search onSearch={onSearch} />
+        {windowSize.width > SCREEN_SM && <Search onSearch={onSearch} />}
       </Header>
       <div className={styles.container}>
         <HighlightSection />
