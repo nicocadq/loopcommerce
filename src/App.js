@@ -2,11 +2,14 @@ import React from "react";
 import { Provider } from "react-redux";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
+import ProtectedRoute from "./components/ProtectedRoute";
+
 import store from "./store";
 import HomePage from "./pages/HomePage";
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
 import ProductDetailPage from "./pages/ProductDetailPage";
+import ThankYouPage from "./pages/ThankYouPage";
 
 import "./App.scss";
 
@@ -24,6 +27,9 @@ const App = () => {
           <Route path="/login">
             <LoginPage />
           </Route>
+          <ProtectedRoute path="/thank-you-page">
+            <ThankYouPage />
+          </ProtectedRoute>
           <Route path="/">
             <HomePage />
           </Route>

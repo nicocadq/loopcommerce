@@ -1,5 +1,5 @@
 import React from "react";
-import { Redirect, useParams } from "react-router-dom";
+import { Redirect, useHistory, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import Header from "../Header";
@@ -8,11 +8,16 @@ import { Button } from "../Form";
 import styles from "./ProductDetail.module.scss";
 
 const ProductDetail = () => {
+  const history = useHistory();
   const { id } = useParams();
 
   const product = useSelector((state) =>
     state.currentProduct?.id === Number(id) ? state.currentProduct : null
   );
+
+  const handleBuyNow = () => {
+    history.push("/thank-you-page");
+  };
 
   if (!product) return <Redirect to="/" />;
 
@@ -36,7 +41,7 @@ const ProductDetail = () => {
             <p className={styles.description}>{product.description} </p>
           </div>
           <div className={styles["product-actions"]}>
-            <Button onClick={() => {}}>Buy Now</Button>
+            <Button onClick={handleBuyNow}>Buy Now</Button>
           </div>
         </div>
       </div>
