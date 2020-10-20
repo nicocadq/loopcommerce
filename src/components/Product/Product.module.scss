@@ -1,7 +1,7 @@
 @import "../../sass/variables";
 
 .product {
-  background-color: $white;
+  background-color: $scale-white;
   border-radius: 6px;
   font-family: $inter-font;
   display: flex;
@@ -21,7 +21,7 @@
   }
 
   .description {
-    border-top: 2px solid $grey;
+    border-top: 2px solid $scale-gray-1;
     display: flex;
     align-items: flex-start;
     flex-direction: column;
@@ -30,7 +30,7 @@
   }
 
   .name {
-    color: $greyish-brown;
+    color: $scale-greyish-brown-1;
     font-size: 15px;
   }
 

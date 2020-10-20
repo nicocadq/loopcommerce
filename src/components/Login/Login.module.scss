@@ -9,7 +9,7 @@
   padding-top: 30px;
 
   .form {
-    background-color: $white;
+    background-color: $scale-white;
     border-radius: $radius;
     display: flex;
     align-items: flex-start;
@@ -52,7 +52,7 @@
     margin: 10px 0px;
 
     a {
-      color: $deep-sky-blue;
+      color: $scale-sky-blue-1;
       margin-left: 5px;
       text-decoration: none;
     }

@@ -2,9 +2,9 @@
 
 .container {
   background-color: $light-red;
-  border: 1px solid $red;
+  border: 1px solid $scale-red;
   border-radius: $radius;
-  color: $red;
+  color: $scale-red;
   display: flex;
   align-items: baseline;
   justify-content: center;
@@ -12,7 +12,7 @@
   padding: 10px;
 
   .icon {
-    background-color: $red;
+    background-color: $scale-red;
     border-radius: 50%;
     color: $light-red;
     font-size: 12px;

@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
-import Button from "../Button";
+import { Button } from "../Form";
 import User from "./User";
 
 import styles from "./Header.module.scss";

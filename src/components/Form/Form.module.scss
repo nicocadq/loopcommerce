@@ -20,16 +20,16 @@
 .primary {
   @extend .button;
 
-  background-color: $deep-sky-blue;
-  border: 1px solid $deep-sky-blue;
-  color: $white;
+  background-color: $scale-sky-blue-1;
+  border: 1px solid $scale-sky-blue-1;
+  color: $scale-white;
 }
 
 .secondary {
   @extend .button;
 
-  border: 1px solid $deep-sky-blue;
-  color: $deep-sky-blue;
+  border: 1px solid $scale-sky-blue-1;
+  color: $scale-sky-blue-1;
 }
 
 .secondary--black {
@@ -40,30 +40,30 @@
 }
 
 .input {
-  background-color: $background-input;
-  border: 1px solid $border-input;
+  background-color: $transparent-gray;
+  border: 1px solid $scale-gray-2;
   border-radius: $radius;
   height: 40px;
   padding: 10px 16px;
   width: 270px;
 
   &::placeholder {
-    color: $placeholder-input;
+    color: $transparent-blue;
   }
 
   &.error {
     background-color: $light-red;
-    border-color: $red;
-    color: $red;
+    border-color: $scale-red;
+    color: $scale-red;
   }
 
   &.error::placeholder {
-    color: $red;
+    color: $scale-red;
   }
 }
 
 .input-error {
-  color: $red;
+  color: $scale-red;
   font-size: 12px;
   margin-top: 5px;
 }
@@ -73,7 +73,7 @@
   width: 100%;
 
   .required-text {
-    color: $dark-gray;
+    color: $scale-gray-4;
     font-size: 14px;
     font-style: italic;
     margin-left: 5px;
@@ -85,19 +85,19 @@
   -moz-appearance: none;
   appearance: none;
 
-  background: url("../../assets/images/arrow-select.svg") $background-input
+  background: url("../../assets/images/arrow-select.svg") $transparent-gray
     no-repeat calc(100% - 10px) !important;
 
-  border: 1px solid $border-input;
+  border: 1px solid $scale-gray-2;
   border-radius: $radius;
-  color: $placeholder-input;
+  color: $transparent-blue;
   height: 40px;
   padding: 10px 16px;
   width: 100%;
 
   &.error {
     background-color: $light-red;
-    border-color: $red;
-    color: $red;
+    border-color: $scale-red;
+    color: $scale-red;
   }
 }
