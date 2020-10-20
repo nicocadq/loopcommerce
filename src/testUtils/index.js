@@ -21,8 +21,17 @@ const renderWithProviders = (ui, { history = createMemoryHistory() } = {}) => {
   return render(ui, { wrapper: Wrapper });
 };
 
+function renderWithRouter(ui, { history }) {
+  const historyData = createMemoryHistory({ initialEntries: history });
+
+  return {
+    ...renderWithProviders(ui, { history: historyData }),
+    history: historyData,
+  };
+}
+
 // re-export everything
 export * from "@testing-library/react";
 
 // override render method
-export { renderWithProviders as render };
+export { renderWithProviders as render, renderWithRouter };
