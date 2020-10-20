@@ -4,7 +4,9 @@ import { useDispatch } from "react-redux";
 
 import Form from "../Form";
 import Logo from "../Logo";
+import ServerError from "../ServerError";
 import { useForm, useDispatchableFetch } from "../../hooks";
+import { deleteEmptyProps } from "../../utils/objects";
 import * as _ from "../../helpers";
 import Types from "../../actions/types";
 
@@ -16,7 +18,7 @@ const validateForm = (values) => {
   errors.email = _.validateEmail(values.email);
   errors.password = _.validatePassword(values.password);
 
-  return errors;
+  return deleteEmptyProps(errors);
 };
 
 const LoginForm = () => {
@@ -32,14 +34,15 @@ const LoginForm = () => {
     body: JSON.stringify(values),
   };
 
-  const { data, loading, error, execute, headersData } = useDispatchableFetch(
-    "auth/sign_in",
-    options
-  );
+  const {
+    data,
+    loading,
+    serverErrors,
+    execute,
+    headersData,
+  } = useDispatchableFetch("auth/sign_in", options);
 
-  const login = () => {
-    execute();
-  };
+  const login = () => execute();
 
   useEffect(() => {
     if (Object.keys(data).length) {
@@ -55,7 +58,7 @@ const LoginForm = () => {
 
   return (
     <div className={styles.form}>
-      <Form onSubmit={(event) => handleOnSubmit(event, login())}>
+      <Form onSubmit={(event) => handleOnSubmit(event, login)}>
         <div className={styles.logo}>
           <Link to="/">
             <Logo />
@@ -71,7 +74,6 @@ const LoginForm = () => {
             placeholder="jhondoe@gmail.com"
             label="Email"
           />
-
           <Form.Input
             error={errors.password}
             id="password"
@@ -82,6 +84,12 @@ const LoginForm = () => {
             placeholder="Type your password"
             label="Password"
           />
+
+          {serverErrors?.map((error) => (
+            <div className={styles.errors} key={error}>
+              <ServerError message={error} />
+            </div>
+          ))}
 
           <Form.Button type="submit" disabled={loading}>
             {loading ? "Loading..." : "Log In"}

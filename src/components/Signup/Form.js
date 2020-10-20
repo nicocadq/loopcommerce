@@ -4,11 +4,13 @@ import { useDispatch } from "react-redux";
 
 import Form from "../Form";
 import Logo from "../Logo";
+import ServerError from "../ServerError";
 import { useForm, useDispatchableFetch } from "../../hooks";
 import * as _ from "../../helpers";
 import Types from "../../actions/types";
 
 import styles from "./Signup.module.scss";
+import { deleteEmptyProps } from "../../utils/objects";
 
 const validateForm = (values) => {
   const errors = {};
@@ -19,7 +21,7 @@ const validateForm = (values) => {
   errors.last_name = _.validateLastName(values.last_name);
   errors.gender = _.validateGender(values.gender);
 
-  return errors;
+  return deleteEmptyProps(errors);
 };
 
 const SignupForm = () => {
@@ -35,14 +37,15 @@ const SignupForm = () => {
     body: JSON.stringify(values),
   };
 
-  const { data, loading, error, execute, headersData } = useDispatchableFetch(
-    "auth",
-    options
-  );
+  const {
+    data,
+    loading,
+    serverErrors,
+    execute,
+    headersData,
+  } = useDispatchableFetch("auth", options);
 
-  const signup = () => {
-    execute();
-  };
+  const signup = () => execute();
 
   useEffect(() => {
     if (Object.keys(data).length) {
@@ -58,7 +61,7 @@ const SignupForm = () => {
 
   return (
     <div className={styles.form}>
-      <Form onSubmit={(event) => handleOnSubmit(event, signup())}>
+      <Form onSubmit={(event) => handleOnSubmit(event, signup)}>
         <div className={styles.logo}>
           <Link to="/">
             <Logo />
@@ -130,6 +133,12 @@ const SignupForm = () => {
             placeholder="Type your password"
             label="Password"
           />
+
+          {serverErrors?.map((error) => (
+            <div className={styles.errors} key={error}>
+              <ServerError message={error} />
+            </div>
+          ))}
 
           <Form.Button type="submit" disabled={loading}>
             {loading ? "Loading..." : "Sign up"}
