@@ -19,7 +19,7 @@ const Column = ({ links, title }) => {
 };
 
 Column.propTypes = {
-  links: PropTypes.arrayOf(PropTypes.node).isRequired,
+  links: PropTypes.arrayOf(PropTypes.string).isRequired,
   title: PropTypes.string.isRequired,
 };
 

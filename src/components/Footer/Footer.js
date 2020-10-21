@@ -4,14 +4,16 @@ import Column from "./Column";
 
 import styles from "./Footer.module.scss";
 
+const brands = ["Adidas", "Puma", "Reebok", "Nike"];
+
 const Footer = () => {
   return (
     <div className={styles.container}>
       <div className={styles.columns}>
-        <Column title="Brands" links={["Adidas", "Puma", "Reebok", "Nike"]} />
-        <Column title="Brands" links={["Adidas", "Puma", "Reebok", "Nike"]} />
-        <Column title="Brands" links={["Adidas", "Puma", "Reebok", "Nike"]} />
-        <Column title="Brands" links={["Adidas", "Puma", "Reebok", "Nike"]} />
+        <Column title="Brands" links={brands} />
+        <Column title="Brands" links={brands} />
+        <Column title="Brands" links={brands} />
+        <Column title="Brands" links={brands} />
       </div>
       <div className={styles.information}>
         <p className={styles.copyright}>
