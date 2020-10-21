@@ -4,14 +4,17 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 import { Button } from "../Form";
+import { useAuth } from "../../hooks";
 
 import { setCurrentProduct } from "../../actions/product";
+import { addProduct } from "../../actions/cart";
 
 import styles from "./Product.module.scss";
 
 const Product = ({ description, id, imageURL, name, price }) => {
   const dispatch = useDispatch();
   const history = useHistory();
+  const { isAuthenticated } = useAuth();
 
   const handleGoToProduct = (event) => {
     dispatch(setCurrentProduct({ description, id, imageURL, name, price }));
@@ -21,8 +24,13 @@ const Product = ({ description, id, imageURL, name, price }) => {
 
   const handleBuyNow = (event) => {
     event.stopPropagation();
+    if (isAuthenticated) {
+      dispatch(addProduct({ description, id, imageURL, name, price }, 1));
 
-    history.push("/thank-you-page");
+      history.push("/cart");
+    } else {
+      history.push("/login");
+    }
   };
 
   return (
