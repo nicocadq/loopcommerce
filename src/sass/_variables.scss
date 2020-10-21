@@ -3,23 +3,25 @@
 $inter-font: "Inter";
 $lato-font: "Lato";
 
-$black: #1c1c1c;
-$background-input: rgba(224, 231, 255, 0.2);
-$border-input: #e0e7ff;
-$dark-gray: #363636;
-$deep-sky-blue: #007bff;
-$deep-gray: #e4e4e4;
-$green: #00b517;
-$grey: #f7f7f7;
-$greyish-brown: #545454;
-$light-greyish-brown: #969696;
-$light-black: #363636;
+$scale-black: #1c1c1c;
+$scale-gray-0: #efefef;
+$scale-gray-1: #f7f7f7;
+$scale-gray-2: #e0e7ff;
+$scale-gray-3: #e4e4e4;
+$scale-gray-4: #363636;
+$scale-greyish-brown-0: #969696;
+$scale-greyish-brown-1: #545454;
+$scale-sky-blue-0: #f1f8ff;
+$scale-sky-blue-1: #007bff;
+$scale-green-0: #e5f7e7;
+$scale-green-1: #00b517;
+$scale-red: #fa3434;
+$scale-white: #ffffff;
+
+$transparent-gray: rgba(224, 231, 255, 0.2);
+$transparent-blue: rgba(0, 123, 255, 0.29);
 $light-red: #feeaea;
-$light-green: #e5f7e7;
-$light-sky-blue: #f1f8ff;
-$placeholder-input: rgba(0, 123, 255, 0.29);
-$red: #fa3434;
-$white: #ffffff;
+$light-black: #3d2626;
 
 $black-shadow-color: rgba(84, 84, 84, 0.1);
 

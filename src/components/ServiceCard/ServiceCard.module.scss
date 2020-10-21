@@ -1,7 +1,7 @@
 @import "../../sass/variables";
 
 .container {
-  background-color: $white;
+  background-color: $scale-white;
   display: flex;
   align-items: baseline;
   justify-content: center;
@@ -9,13 +9,13 @@
   width: 330px;
 
   .title {
-    color: $black;
+    color: $scale-black;
     font-family: $inter-font;
     font-size: 15px;
   }
 
   .description {
-    color: $greyish-brown;
+    color: $scale-greyish-brown-1;
   }
 
   .icon {
@@ -28,28 +28,28 @@
     @extend .icon;
 
     background-color: $light-red;
-    color: $red;
+    color: $scale-red;
   }
 
   .blue {
     @extend .icon;
 
-    background-color: $light-sky-blue;
-    color: $deep-sky-blue;
+    background-color: $scale-sky-blue-0;
+    color: $scale-sky-blue-1;
   }
 
   .green {
     @extend .icon;
 
-    background-color: $light-green;
-    color: $green;
+    background-color: $scale-green-0;
+    color: $scale-green-1;
   }
 
   .grey {
     @extend .icon;
 
-    background-color: $grey;
-    color: $greyish-brown;
+    background-color: $scale-gray-1;
+    color: $scale-greyish-brown-1;
   }
 
   .wrapper {

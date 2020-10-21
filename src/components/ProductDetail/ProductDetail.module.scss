@@ -7,7 +7,7 @@
   min-height: 100vh;
 
   .product-container {
-    background-color: $white;
+    background-color: $scale-white;
     border-radius: $radius;
     display: flex;
     align-items: center;
@@ -48,17 +48,17 @@
         }
 
         .price {
-          color: $deep-gray;
+          color: $scale-gray-3;
           font-size: 18px;
 
           .number {
-            color: $black;
+            color: $scale-black;
             font-size: 24px;
           }
         }
 
         .description {
-          color: $deep-gray;
+          color: $scale-gray-3;
           font-size: 16px;
           text-overflow: ellipsis;
           margin-top: 15px;

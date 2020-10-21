@@ -8,6 +8,7 @@ import ServerError from "../ServerError";
 import Spinner from "../Loader";
 import Product from "../Product";
 import Pagination from "../Pagination";
+import Footer from "../Footer";
 import { useFetch, useWindowSize } from "../../hooks";
 
 import { SCREEN_SM } from "../../utils/breakpoints";
@@ -85,6 +86,7 @@ const Home = () => {
           />
         </div>
       </div>
+      <Footer />
     </>
   );
 };
