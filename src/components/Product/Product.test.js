@@ -30,7 +30,7 @@ describe("Product", () => {
   });
 
   it("goes to thank you page when Buy Now is clicked", () => {
-    const { getByTestId, history } = renderWithRouter(
+    const { getByRole, getByTestId, history } = renderWithRouter(
       <Product
         description={fakeProduct.description}
         id={fakeProduct.id}
@@ -41,10 +41,10 @@ describe("Product", () => {
       { history: ["/"] }
     );
 
-    const buyNowButton = getByTestId("buy-now-button");
+    const buyNowButton = getByRole("button");
     fireEvent.click(buyNowButton);
 
-    expect(history.location.pathname).toEqual("/thank-you-page");
+    expect(history.location.pathname).toBe("/thank-you-page");
   });
 
   it("goes to product detail when product is clicked", () => {
@@ -62,11 +62,11 @@ describe("Product", () => {
     const product = getByTestId("product");
     fireEvent.click(product);
 
-    expect(history.location.pathname).toEqual(`/product/${fakeProduct.id}`);
+    expect(history.location.pathname).toBe(`/product/${fakeProduct.id}`);
   });
 
   it("shows product information", () => {
-    const { getByTestId, getByText, container } = render(
+    const { getByRole, getByText } = render(
       <Product
         description={fakeProduct.description}
         id={fakeProduct.id}
@@ -76,7 +76,7 @@ describe("Product", () => {
       />
     );
 
-    const image = container.getElementsByTagName("img")[0];
+    const image = getByRole("img", { name: `${fakeProduct.description}` });
 
     expect(image).toHaveAttribute("src", `${fakeProduct.imageURL}`);
 

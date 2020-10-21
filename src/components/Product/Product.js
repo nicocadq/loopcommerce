@@ -43,9 +43,7 @@ const Product = ({ description, id, imageURL, name, price }) => {
           $ <span>{price}</span>
         </span>
       </div>
-      <Button onClick={handleBuyNow} data-testid="buy-now-button">
-        Buy Now
-      </Button>
+      <Button onClick={handleBuyNow}>Buy Now</Button>
     </div>
   );
 };
