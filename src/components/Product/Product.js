@@ -26,8 +26,6 @@ const Product = ({ description, id, imageURL, name, price }) => {
     event.stopPropagation();
     if (isAuthenticated) {
       dispatch(addProduct({ description, id, imageURL, name, price }, 1));
-
-      history.push("/cart");
     } else {
       history.push("/login");
     }
@@ -48,7 +46,7 @@ const Product = ({ description, id, imageURL, name, price }) => {
           $ <span>{price}</span>
         </span>
       </div>
-      <Button onClick={handleBuyNow}>Buy Now</Button>
+      <Button onClick={handleBuyNow}>Add to Cart</Button>
     </div>
   );
 };
