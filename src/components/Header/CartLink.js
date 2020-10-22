@@ -8,7 +8,7 @@ import styles from "./Header.module.scss";
 
 const CartLink = () => {
   const history = useHistory();
-  const cartItems = useSelector((state) => state.cart.products.length);
+  const cartItems = useSelector(({ cart: { products } }) => products.length);
 
   const handleOnClick = () => {
     history.push("/cart");

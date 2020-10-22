@@ -1,16 +1,22 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 import Product from "./Product";
 import { Button } from "../Form";
+
+import { clearCart } from "../../actions/cart";
 
 import styles from "./Cart.module.scss";
 
 const Table = ({ products }) => {
   const history = useHistory();
+  const dispatch = useDispatch();
 
   const handleMakePurchase = () => {
+    dispatch(clearCart());
+
     history.push("/thank-you-page");
   };
 

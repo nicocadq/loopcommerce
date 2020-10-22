@@ -3,5 +3,5 @@ export const getObjectByProp = (param, prop, arrayOfObjects) => {
 };
 
 export const filterByProp = (param, prop, arrayOfObjects) => {
-  return arrayOfObjects.filter((object) => object[prop] !== param);
+  return arrayOfObjects.filter((object) => object[prop] !== param) || [];
 };
