@@ -84,6 +84,17 @@
           border-right: 1px solid;
           border-radius: 0px $radius $radius 0px;
         }
+
+        .amount {
+          border: 1px solid $light-black;
+          border-radius: 0px;
+          border-right: 0px;
+          color: $light-black;
+          font-family: $inter-font;
+          font-size: 12px;
+          padding: 5.5px 8px;
+          margin-top: 5px;
+        }
       }
 
       .product-actions {

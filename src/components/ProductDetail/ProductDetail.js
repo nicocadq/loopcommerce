@@ -66,9 +66,7 @@ const ProductDetail = () => {
               <Button buttonType="secondary--black" onClick={increaseQuantity}>
                 +
               </Button>
-              <Button buttonType="secondary--black" onClick={() => {}}>
-                {quantity}
-              </Button>
+              <span className={styles.amount}>{quantity}</span>
               <Button
                 buttonType="secondary--black"
                 onClick={decreaseQuantity}
