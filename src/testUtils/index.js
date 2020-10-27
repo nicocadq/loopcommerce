@@ -2,15 +2,20 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Provider } from "react-redux";
 import { render } from "@testing-library/react";
-import { Router } from "react-router-dom";
+import { Router, Route } from "react-router-dom";
 import { createMemoryHistory } from "history";
 
-import store from "../store";
+import setupStore from "../store";
 
-const renderWithProviders = (ui, { history = createMemoryHistory() } = {}) => {
+const renderWithProviders = (ui, { initialState, history = [] } = {}) => {
+  const { store } = setupStore(initialState);
+  const historyData = history.length
+    ? createMemoryHistory({ initialEntries: history })
+    : createMemoryHistory();
+
   const Wrapper = ({ children }) => (
     <Provider store={store}>
-      <Router history={history}>{children}</Router>
+      <Router history={historyData}>{children}</Router>
     </Provider>
   );
 
@@ -18,7 +23,7 @@ const renderWithProviders = (ui, { history = createMemoryHistory() } = {}) => {
     children: PropTypes.node.isRequired,
   };
 
-  return render(ui, { wrapper: Wrapper });
+  return { ...render(ui, { wrapper: Wrapper }), store, history: historyData };
 };
 
 function renderWithRouter(ui, { history }) {
