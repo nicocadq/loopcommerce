@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 
 import { Button } from "../Form";
 
-import Types from "../../actions/types";
+import { setCurrentProduct } from "../../actions/product";
 
 import styles from "./Product.module.scss";
 
@@ -14,10 +14,7 @@ const Product = ({ description, id, imageURL, name, price }) => {
   const history = useHistory();
 
   const handleGoToProduct = (event) => {
-    dispatch({
-      type: Types.SET_CURRENT_PRODUCT,
-      product: { description, id, imageURL, name, price },
-    });
+    dispatch(setCurrentProduct({ description, id, imageURL, name, price }));
 
     history.push(`/product/${id}`);
   };

@@ -8,7 +8,7 @@ import ServerError from "../ServerError";
 import { useForm, useDispatchableFetch } from "../../hooks";
 import { deleteEmptyProps } from "../../utils/objects";
 import * as _ from "../../helpers";
-import Types from "../../actions/types";
+import { setUser } from "../../actions/auth";
 
 import styles from "./Login.module.scss";
 
@@ -49,12 +49,9 @@ const LoginForm = () => {
     if (Object.keys(data).length) {
       const accessToken = headersData["access-token"];
       const { uid, client } = headersData;
-      dispatch({
-        type: Types.SET_USER,
-        payload: { user: data, headers: { accessToken, client, uid } },
-      });
+      dispatch(setUser(data, { accessToken, client, uid }));
 
-      history.push(state?.from || "/");
+      history.push("/");
     }
   }, [data, dispatch, headersData, history, state]);
 

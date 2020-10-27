@@ -7,7 +7,7 @@ import Logo from "../Logo";
 import ServerError from "../ServerError";
 import { useForm, useDispatchableFetch } from "../../hooks";
 import * as _ from "../../helpers";
-import Types from "../../actions/types";
+import { setUser } from "../../actions/auth";
 
 import styles from "./Signup.module.scss";
 import { deleteEmptyProps } from "../../utils/objects";
@@ -52,12 +52,9 @@ const SignupForm = () => {
     if (Object.keys(data).length) {
       const accessToken = headersData["access-token"];
       const { uid, client } = headersData;
-      dispatch({
-        type: Types.SET_USER,
-        payload: { user: data, headers: { accessToken, client, uid } },
-      });
+      dispatch(setUser(data, { accessToken, client, uid }));
 
-      history.push(state?.from || "/");
+      history.push("/");
     }
   }, [data, dispatch, headersData, history, state]);
 
