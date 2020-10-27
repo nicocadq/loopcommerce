@@ -22,7 +22,7 @@ const ProductDetail = () => {
   if (!product) return <Redirect to="/" />;
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} data-testid="product-detail">
       <Header />
       <div className={styles["product-container"]}>
         <div className={styles["image-container"]}>

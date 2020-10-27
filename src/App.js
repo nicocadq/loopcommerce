@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import ProtectedRoute from "./components/ProtectedRoute";
 
-import store from "./store";
+import setupStore from "./store";
 import HomePage from "./pages/HomePage";
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
@@ -15,7 +15,7 @@ import "./App.scss";
 
 const App = () => {
   return (
-    <Provider store={store}>
+    <Provider store={setupStore()}>
       <BrowserRouter>
         <Switch>
           <Route path="/product/:id">

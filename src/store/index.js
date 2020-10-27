@@ -3,14 +3,12 @@ import { composeWithDevTools } from "redux-devtools-extension";
 
 import rootReducer from "../reducers";
 
-let store;
+const setupStore = (initialState = {}) => {
+  if (process.env.NODE_ENV === "development") {
+    return createStore(rootReducer, initialState, composeWithDevTools());
+  } else {
+    return createStore(rootReducer, initialState);
+  }
+};
 
-if (process.env.NODE_ENV === "development") {
-  store = createStore(rootReducer, composeWithDevTools());
-
-  window.store = store;
-} else {
-  store = createStore(rootReducer);
-}
-
-export default store;
+export default setupStore;
