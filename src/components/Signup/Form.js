@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Link, Redirect, useHistory, useLocation } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 import Form from "../Form";
@@ -28,7 +28,6 @@ const SignupForm = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const { state } = useLocation();
-  const [redirectToReferrer, setRedirectToReferrer] = useState(false);
   const { values, errors, handleOnChange, handleOnSubmit } = useForm(
     validateForm
   );
@@ -57,11 +56,10 @@ const SignupForm = () => {
         type: Types.SET_USER,
         payload: { user: data, headers: { accessToken, client, uid } },
       });
-      setRedirectToReferrer(true);
-    }
-  }, [data, dispatch, headersData, history]);
 
-  if (redirectToReferrer) return <Redirect to={state?.from || "/"} />;
+      history.push(state?.from || "/");
+    }
+  }, [data, dispatch, headersData, history, state]);
 
   return (
     <div className={styles.form}>
