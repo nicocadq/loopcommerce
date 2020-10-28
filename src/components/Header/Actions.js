@@ -1,15 +1,15 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 import { Button } from "../Form";
 import User from "./User";
+import { useAuth } from "../../hooks";
 
 import styles from "./Header.module.scss";
 
 const Actions = () => {
   const history = useHistory();
-  const user = useSelector((state) => state.auth.user);
+  const { isAuthenticated } = useAuth();
 
   const goToLogIn = () => {
     history.push("/login");
@@ -21,7 +21,7 @@ const Actions = () => {
 
   return (
     <div className={styles["buttons-group"]}>
-      {user ? (
+      {isAuthenticated ? (
         <User />
       ) : (
         <>

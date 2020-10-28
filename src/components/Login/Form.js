@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 import Form from "../Form";
@@ -24,6 +24,7 @@ const validateForm = (values) => {
 const LoginForm = () => {
   const dispatch = useDispatch();
   const history = useHistory();
+  const { state } = useLocation();
   const { values, errors, handleOnChange, handleOnSubmit } = useForm(
     validateForm
   );
@@ -52,9 +53,10 @@ const LoginForm = () => {
         type: Types.SET_USER,
         payload: { user: data, headers: { accessToken, client, uid } },
       });
-      history.push("/");
+
+      history.push(state?.from || "/");
     }
-  }, [data, dispatch, headersData, history]);
+  }, [data, dispatch, headersData, history, state]);
 
   return (
     <div className={styles.form}>
