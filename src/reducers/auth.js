@@ -9,7 +9,7 @@ const initialSate = JSON.parse(localStorage.getItem(USER_PATH)) || {
 export default (state = initialSate, action) => {
   switch (action.type) {
     case Types.SET_USER:
-      const { user, headers } = action.payload;
+      const { user, headers } = action;
 
       localStorage.setItem(USER_PATH, JSON.stringify({ user, headers }));
 
@@ -22,7 +22,7 @@ export default (state = initialSate, action) => {
     case Types.DELETE_USER:
       localStorage.removeItem(USER_PATH);
 
-      return { ...state, ...initialSate };
+      return { ...initialSate };
 
     default:
       return state;

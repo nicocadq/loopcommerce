@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 
 import { Button } from "../Form";
 
-import Types from "../../actions/types";
+import { deleteUser } from "../../actions/auth";
 
 import styles from "./Header.module.scss";
 
@@ -18,7 +18,7 @@ const User = () => {
   };
 
   const handleSignOut = () => {
-    dispatch({ type: Types.DELETE_USER });
+    dispatch(deleteUser());
   };
 
   return (
