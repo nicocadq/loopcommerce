@@ -29,13 +29,19 @@ const Product = ({ description, id, imageURL, name, price }) => {
   };
 
   return (
-    <div className={styles.product} onClick={handleGoToProduct}>
+    <div
+      className={styles.product}
+      onClick={handleGoToProduct}
+      data-testid="product"
+    >
       <div className={styles.image}>
         <img src={imageURL} alt={description} />
       </div>
       <div className={styles.description}>
         <p className={styles.name}>{name}</p>
-        <span className={styles.price}>${price}</span>
+        <span className={styles.price}>
+          $ <span>{price}</span>
+        </span>
       </div>
       <Button onClick={handleBuyNow}>Buy Now</Button>
     </div>
