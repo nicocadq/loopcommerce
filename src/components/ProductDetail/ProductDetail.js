@@ -26,7 +26,7 @@ const ProductDetail = () => {
       <Header />
       <div className={styles["product-container"]}>
         <div className={styles["image-container"]}>
-          <img src={product.imageURL} alt={product.description} />
+          <img src={product.imageURL} alt={product.name} />
         </div>
         <div className={styles.wrapper}>
           <div className={styles.info}>

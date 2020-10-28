@@ -76,7 +76,7 @@ describe("Product", () => {
       }
     );
 
-    const image = getByRole("img", { name: `${fakeProduct.description}` });
+    const image = getByRole("img", { name: `${fakeProduct.name}` });
 
     expect(image).toHaveAttribute("src", `${fakeProduct.imageURL}`);
 
