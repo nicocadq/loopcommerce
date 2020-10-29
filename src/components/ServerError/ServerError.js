@@ -7,7 +7,7 @@ import styles from "./ServerError.module.scss";
 
 const ServerError = ({ message }) => {
   return (
-    <div className={styles.container}>
+    <div className={styles.container} data-testid="server-error">
       <div className={styles.icon}>
         <FontAwesomeIcon icon={faTimes} />
       </div>
