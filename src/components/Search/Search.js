@@ -24,7 +24,7 @@ const Search = ({ onSearch }) => {
   };
 
   return (
-    <div className={styles.search} data-testid="search">
+    <div className={styles.search}>
       <form>
         <input type="text" onChange={handleOnChange} placeholder="Search" />
         <Button onClick={handleOnClick}>

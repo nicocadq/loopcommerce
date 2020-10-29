@@ -4,15 +4,6 @@ import { render, fireEvent } from "../../testUtils";
 import Search from "./Search";
 
 describe("Search", () => {
-  it("renders correctly", () => {
-    const fakeOnSearch = jest.fn();
-
-    const { getByTestId } = render(<Search onSearch={fakeOnSearch} />);
-
-    const search = getByTestId("search");
-    expect(search).toBeDefined();
-  });
-
   it("executes onSearch callback when the user clicks on the search button", () => {
     const fakeOnSearch = jest.fn();
 

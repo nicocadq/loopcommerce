@@ -9,7 +9,7 @@ import styles from "./Header.module.scss";
 
 const Header = ({ children }) => {
   return (
-    <div className={styles.header} data-testid="header">
+    <div className={styles.header}>
       <div className={styles.container}>
         <Link to="/">
           <Logo />

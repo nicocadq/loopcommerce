@@ -26,13 +26,6 @@ const fakeState = {
 };
 
 describe("Header", () => {
-  it("renders component", () => {
-    const { getByTestId } = render(<Header />);
-
-    const header = getByTestId("header");
-    expect(header).toBeDefined();
-  });
-
   it("redirects to home when the user clicks in the logo", () => {
     const { getByRole, history } = render(<Header />);
 

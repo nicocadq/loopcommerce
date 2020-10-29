@@ -20,21 +20,6 @@ const fakeState = {
 };
 
 describe("Product", () => {
-  it("renders component", () => {
-    const { getByTestId } = render(
-      <Route path="/product/:id">
-        <ProductDetail />
-      </Route>,
-      {
-        initialState: fakeState,
-        history: [`/product/${fakeProduct.id}`],
-      }
-    );
-
-    const product = getByTestId("product-detail");
-    expect(product).toBeDefined();
-  });
-
   it("redirects to home if currentProduct isn't in the store ", () => {
     const { history } = render(
       <Route path="/product/:id">
