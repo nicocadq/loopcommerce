@@ -5,7 +5,10 @@ import BannerImage from "../../assets/images/banner.png";
 import Banner from "./Banner";
 
 describe("Banner", () => {
-  it("renders correctly", () => {
-    expect(<Banner bannerImage={BannerImage} />).toBeTruthy();
+  it("renders the image correctly", () => {
+    const { getByRole } = render(<Banner bannerImage={BannerImage} />);
+
+    const image = getByRole("img", { name: "Banner" });
+    expect(image).toHaveAttribute("src", `${BannerImage}`);
   });
 });
