@@ -7,13 +7,13 @@ import styles from "./Signup.module.scss";
 
 const Signup = () => {
   return (
-    <div className={styles.container}>
+    <main className={styles.container}>
       <SignupForm />
       <div className={styles["have-an-account"]}>
         Already have an account?
         <Link to="/login">Sign In</Link>
       </div>
-    </div>
+    </main>
   );
 };
 

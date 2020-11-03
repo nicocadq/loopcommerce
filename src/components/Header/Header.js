@@ -9,7 +9,7 @@ import styles from "./Header.module.scss";
 
 const Header = ({ children }) => {
   return (
-    <div className={styles.header}>
+    <header className={styles.header}>
       <div className={styles.container}>
         <Link to="/">
           <Logo />
@@ -17,7 +17,7 @@ const Header = ({ children }) => {
         {children}
         <Actions />
       </div>
-    </div>
+    </header>
   );
 };
 
