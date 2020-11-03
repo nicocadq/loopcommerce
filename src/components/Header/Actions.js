@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 
 import { Button } from "../Form";
 import User from "./User";
+import CartLink from "./CartLink";
 import { useAuth } from "../../hooks";
 
 import styles from "./Header.module.scss";
@@ -22,7 +23,10 @@ const Actions = () => {
   return (
     <div className={styles["buttons-group"]}>
       {isAuthenticated ? (
-        <User />
+        <>
+          <User />
+          <CartLink />
+        </>
       ) : (
         <>
           <Button onClick={goToLogIn}>Login</Button>

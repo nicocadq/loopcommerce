@@ -10,6 +10,7 @@ import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
 import ProductDetailPage from "./pages/ProductDetailPage";
 import ThankYouPage from "./pages/ThankYouPage";
+import CartPage from "./pages/CartPage";
 
 import "./App.scss";
 
@@ -29,6 +30,9 @@ const App = () => {
           </Route>
           <ProtectedRoute path="/thank-you-page">
             <ThankYouPage />
+          </ProtectedRoute>
+          <ProtectedRoute path="/cart">
+            <CartPage />
           </ProtectedRoute>
           <Route path="/">
             <HomePage />
