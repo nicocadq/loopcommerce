@@ -32,6 +32,10 @@ const Search = ({ onSearch }) => {
     }, 250);
   };
 
+  const handleOnProductClick = (value) => {
+    onSearch(value);
+  };
+
   return (
     <div className={styles.search} onBlur={handleOnBlur}>
       <form>
@@ -41,7 +45,10 @@ const Search = ({ onSearch }) => {
         </Button>
       </form>
       {showLiveSearch && (
-        <LiveSearch onProductClick={onSearch} value={debouncedValue} />
+        <LiveSearch
+          onProductClick={handleOnProductClick}
+          value={debouncedValue}
+        />
       )}
     </div>
   );

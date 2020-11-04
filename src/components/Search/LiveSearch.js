@@ -24,7 +24,7 @@ const LiveSearch = ({ onProductClick, value }) => {
         products?.map(({ id, name }) => (
           <span
             className={styles.product}
-            onClick={handleOnClick(name)}
+            onClick={() => handleOnClick(name)}
             key={id}
           >
             {name}
