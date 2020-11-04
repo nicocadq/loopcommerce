@@ -34,8 +34,8 @@ const ThankYou = () => {
           <div>
             <h3>Thanks for shopping with us!</h3>
             <p>
-              You should e receiving an email with your order details ny minute
-              now, if you any concern please contact us here.
+              You should be receiving an email with your order details any
+              minute now, if you have any concern please contact us here.
             </p>
           </div>
 
