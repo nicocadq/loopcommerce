@@ -2,6 +2,7 @@
 
 .search {
   height: 36px;
+  position: relative;
   width: 336px;
 
   form {
@@ -26,6 +27,32 @@
     button {
       border-radius: 0 $radius $radius 0;
       height: 100%;
+    }
+  }
+
+  .live-search {
+    background-color: $scale-gray-3;
+    border-radius: $radius;
+    display: flex;
+    flex-direction: column;
+    min-height: 30px;
+    padding: 5px;
+    position: absolute;
+    top: 40px;
+    width: 100%;
+
+    .product {
+      border-radius: $radius;
+      color: $scale-white;
+      padding: 5px;
+      width: 100%;
+
+      &:hover {
+        background-color: $scale-white;
+        color: $scale-gray-3;
+        cursor: pointer;
+        transition: 0.05s ease-in;
+      }
     }
   }
 }

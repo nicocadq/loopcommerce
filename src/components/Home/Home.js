@@ -24,7 +24,7 @@ const Home = () => {
 
   const {
     data: { products },
-    loading,
+    isLoading,
     error,
     headersData,
   } = useFetch(
@@ -61,7 +61,7 @@ const Home = () => {
       <div className={styles.container}>
         <HighlightSection />
         <h2 className={styles["new-arrivals-title"]}>New Arrivals</h2>
-        {loading ? (
+        {isLoading ? (
           <Spinner />
         ) : (
           <div className={styles.products}>
