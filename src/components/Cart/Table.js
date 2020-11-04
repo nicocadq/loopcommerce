@@ -10,6 +10,11 @@ import styles from "./Cart.module.scss";
 const Table = ({ products }) => {
   const history = useHistory();
 
+  const totalPrice = products.reduce((accumulator, { price, amount }) => {
+    const pricePerProduct = Number(price) * amount;
+    return accumulator + pricePerProduct;
+  }, 0);
+
   const handleMakePurchase = () => {
     history.push("/thank-you-page");
   };
@@ -38,8 +43,9 @@ const Table = ({ products }) => {
           ))}
         </tbody>
       </table>
-      <div className={styles["make-purchase"]}>
-        <Button onClick={handleMakePurchase}>Make the purchase</Button>
+      <span className={styles["total-price"]}>Total Price: ${totalPrice}</span>
+      <div className={styles.checkout}>
+        <Button onClick={handleMakePurchase}>Checkout</Button>
       </div>
     </div>
   );

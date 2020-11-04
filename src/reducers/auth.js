@@ -22,7 +22,10 @@ export default (state = initialSate, action) => {
     case Types.DELETE_USER:
       localStorage.removeItem(USER_PATH);
 
-      return { ...initialSate };
+      return {
+        user: null,
+        headers: null,
+      };
 
     default:
       return state;

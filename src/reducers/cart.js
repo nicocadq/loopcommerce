@@ -1,9 +1,12 @@
 import Types from "../actions/types";
+import { CART_PRODUCTS_PATH } from "../utils/constants";
 import { filterByProp, getObjectByProp } from "../utils/arrays";
 
-const initialSate = {
+const initialSate = JSON.parse(localStorage.getItem(CART_PRODUCTS_PATH)) || {
   products: [],
 };
+
+let newState;
 
 export default (state = initialSate, action) => {
   switch (action.type) {
@@ -24,24 +27,32 @@ export default (state = initialSate, action) => {
 
       const formattedProduct = { ...productToAdd, amount };
 
-      return {
+      newState = {
         ...state,
         products: [...state.products, formattedProduct],
       };
 
+      localStorage.setItem(CART_PRODUCTS_PATH, JSON.stringify(newState));
+
+      return newState;
+
     case Types.DELETE_PRODUCT_FROM_CART:
       const productToDelete = action.product;
 
-      return {
+      newState = {
         ...state,
         products: filterByProp(productToDelete, "id", state.products),
       };
+
+      localStorage.setItem(CART_PRODUCTS_PATH, JSON.stringify(newState));
+
+      return newState;
 
     case Types.INCREASE_PRODUCT_AMOUNT:
       const idProductToIncreaseAmount = action.product;
       const amountToIncrease = action.amount;
 
-      return {
+      newState = {
         ...state,
         products: state.products.map((product) => {
           if (product.id !== idProductToIncreaseAmount) return product;
@@ -50,11 +61,15 @@ export default (state = initialSate, action) => {
         }),
       };
 
+      localStorage.setItem(CART_PRODUCTS_PATH, JSON.stringify(newState));
+
+      return newState;
+
     case Types.DECREASE_PRODUCT_AMOUNT:
       const idProductToDecreaseAmount = action.product;
       const amountToDecrease = action.amount;
 
-      return {
+      newState = {
         ...state,
         products: state.products.map((product) => {
           if (product.id === idProductToDecreaseAmount && product.amount > 1) {
@@ -68,7 +83,17 @@ export default (state = initialSate, action) => {
         }),
       };
 
+      localStorage.setItem(CART_PRODUCTS_PATH, JSON.stringify(newState));
+
+      return newState;
+
     case Types.CLEAR_CART:
+      localStorage.removeItem(CART_PRODUCTS_PATH);
+
+      return {
+        products: [],
+      };
+
     default:
       return {
         ...initialSate,
