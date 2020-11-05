@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
-import { Button } from "./../Form";
 import LiveSearch from "./LiveSearch";
 import { useDebounce } from "../../hooks";
 
@@ -40,9 +39,9 @@ const Search = ({ onSearch }) => {
     <div className={styles.search} onBlur={handleOnBlur}>
       <form>
         <input type="text" onChange={handleOnChange} placeholder="Search" />
-        <Button>
+        <span className={styles.icon}>
           <FontAwesomeIcon icon={faSearch} />
-        </Button>
+        </span>
       </form>
       {showLiveSearch && (
         <LiveSearch

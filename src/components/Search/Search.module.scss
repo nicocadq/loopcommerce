@@ -24,9 +24,14 @@
       }
     }
 
-    button {
+    .icon {
+      background-color: $scale-sky-blue-1;
+      border: 1px solid $scale-sky-blue-1;
       border-radius: 0 $radius $radius 0;
+      color: $scale-white;
+      font-family: $inter-font;
       height: 100%;
+      padding: 8px 6px;
     }
   }
 
