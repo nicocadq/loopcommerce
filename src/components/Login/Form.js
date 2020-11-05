@@ -40,7 +40,7 @@ const LoginForm = () => {
     serverErrors,
     execute,
     headersData,
-  } = useDispatchableFetch("auth/sign_in", options);
+  } = useDispatchableFetch("/auth/sign_in", options);
 
   const login = () => execute();
 

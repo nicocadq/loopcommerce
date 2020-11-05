@@ -29,8 +29,8 @@ const Home = () => {
   } = useFetch(
     `${
       currentSearch
-        ? `products/?filter=${currentSearch}&page=${currentPage}`
-        : `products/?page=${currentPage}`
+        ? `/products/?filter=${currentSearch}&page=${currentPage}`
+        : `/products/?page=${currentPage}`
     }`
   );
 

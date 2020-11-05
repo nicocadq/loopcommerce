@@ -43,7 +43,7 @@ const SignupForm = () => {
     serverErrors,
     execute,
     headersData,
-  } = useDispatchableFetch("auth", options);
+  } = useDispatchableFetch("/auth", options);
 
   const signup = () => execute();
 
