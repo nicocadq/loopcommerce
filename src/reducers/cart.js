@@ -1,14 +1,15 @@
+import storage from "redux-persist/lib/storage";
+import { persistReducer } from "redux-persist";
+
 import Types from "../actions/types";
 import { CART_PRODUCTS_PATH } from "../utils/constants";
 import { filterByProp, getObjectByProp } from "../utils/arrays";
 
-const initialSate = JSON.parse(localStorage.getItem(CART_PRODUCTS_PATH)) || {
+const initialSate = {
   products: [],
 };
 
-let newState;
-
-export default (state = initialSate, action) => {
+const cartReducer = (state = initialSate, action) => {
   switch (action.type) {
     case Types.ADD_PRODUCT_TO_CART:
       const { amount } = action;
@@ -27,32 +28,24 @@ export default (state = initialSate, action) => {
 
       const formattedProduct = { ...productToAdd, amount };
 
-      newState = {
+      return {
         ...state,
         products: [...state.products, formattedProduct],
       };
 
-      localStorage.setItem(CART_PRODUCTS_PATH, JSON.stringify(newState));
-
-      return newState;
-
     case Types.DELETE_PRODUCT_FROM_CART:
       const productToDelete = action.product;
 
-      newState = {
+      return {
         ...state,
         products: filterByProp(productToDelete, "id", state.products),
       };
-
-      localStorage.setItem(CART_PRODUCTS_PATH, JSON.stringify(newState));
-
-      return newState;
 
     case Types.INCREASE_PRODUCT_AMOUNT:
       const idProductToIncreaseAmount = action.product;
       const amountToIncrease = action.amount;
 
-      newState = {
+      return {
         ...state,
         products: state.products.map((product) => {
           if (product.id !== idProductToIncreaseAmount) return product;
@@ -61,15 +54,11 @@ export default (state = initialSate, action) => {
         }),
       };
 
-      localStorage.setItem(CART_PRODUCTS_PATH, JSON.stringify(newState));
-
-      return newState;
-
     case Types.DECREASE_PRODUCT_AMOUNT:
       const idProductToDecreaseAmount = action.product;
       const amountToDecrease = action.amount;
 
-      newState = {
+      return {
         ...state,
         products: state.products.map((product) => {
           if (product.id === idProductToDecreaseAmount && product.amount > 1) {
@@ -83,20 +72,17 @@ export default (state = initialSate, action) => {
         }),
       };
 
-      localStorage.setItem(CART_PRODUCTS_PATH, JSON.stringify(newState));
-
-      return newState;
-
     case Types.CLEAR_CART:
-      localStorage.removeItem(CART_PRODUCTS_PATH);
-
-      return {
-        products: [],
-      };
+      return initialSate;
 
     default:
-      return {
-        ...initialSate,
-      };
+      return state;
   }
 };
+
+const cartPersistConfig = {
+  storage,
+  key: CART_PRODUCTS_PATH,
+};
+
+export default persistReducer(cartPersistConfig, cartReducer);
