@@ -16,4 +16,15 @@ body {
   min-height: 100vh;
   height: 100%;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+
+  footer,
+  header {
+    flex-shrink: 0;
+  }
+
+  main {
+    flex-grow: 1;
+  }
 }

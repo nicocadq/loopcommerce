@@ -8,7 +8,7 @@ const brands = ["Adidas", "Puma", "Reebok", "Nike"];
 
 const Footer = () => {
   return (
-    <div className={styles.container}>
+    <footer className={styles.container}>
       <div className={styles.columns}>
         <Column title="Brands" links={brands} />
         <Column title="Brands" links={brands} />
@@ -23,7 +23,7 @@ const Footer = () => {
         <p className={styles.phone}>879-332-9375</p>
         <p className={styles.address}>456 Hagenes Gardens Suite 808</p>
       </div>
-    </div>
+    </footer>
   );
 };
 

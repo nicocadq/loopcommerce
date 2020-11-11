@@ -25,29 +25,27 @@ const ThankYou = () => {
 
   return (
     <>
-      <div className={styles.container}>
-        <Header />
-        <div className={styles.content}>
-          <div className={styles["image-container"]}>
-            <img src={ShoppingImage} alt="Shipping" />
+      <Header />
+      <main className={styles.container}>
+        <div className={styles["image-container"]}>
+          <img src={ShoppingImage} alt="Shipping" />
+        </div>
+        <div className={styles["text-container"]}>
+          <div>
+            <h3>Thanks for shopping with us!</h3>
+            <p>
+              You should be receiving an email with your order details any
+              minute now, if you have any concern please contact us here.
+            </p>
           </div>
-          <div className={styles["text-container"]}>
-            <div>
-              <h3>Thanks for shopping with us!</h3>
-              <p>
-                You should e receiving an email with your order details ny
-                minute now, if you any concern please contact us here.
-              </p>
-            </div>
 
-            <div className={styles.actions}>
-              <Button buttonType="secondary" onClick={handleContinueShopping}>
-                Continue Shopping
-              </Button>
-            </div>
+          <div className={styles.actions}>
+            <Button buttonType="secondary" onClick={handleContinueShopping}>
+              Continue Shopping
+            </Button>
           </div>
         </div>
-      </div>
+      </main>
       <Footer />
     </>
   );

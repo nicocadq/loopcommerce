@@ -58,7 +58,7 @@ const Home = () => {
       <Header>
         {windowSize.width > SCREEN_SM && <Search onSearch={onSearch} />}
       </Header>
-      <div className={styles.container}>
+      <main className={styles.container}>
         <HighlightSection />
         <h2 className={styles["new-arrivals-title"]}>New Arrivals</h2>
         {loading ? (
@@ -85,7 +85,7 @@ const Home = () => {
             totalPages={totalPages}
           />
         </div>
-      </div>
+      </main>
       <Footer />
     </>
   );
