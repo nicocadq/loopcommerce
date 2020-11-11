@@ -1,17 +1,18 @@
+import storage from "redux-persist/lib/storage";
+import { persistReducer } from "redux-persist";
+
 import Types from "../actions/types";
 import { USER_PATH } from "../utils/constants";
 
-const initialSate = JSON.parse(localStorage.getItem(USER_PATH)) || {
+const initialSate = {
   user: null,
   headers: null,
 };
 
-export default (state = initialSate, action) => {
+const authReducer = (state = initialSate, action) => {
   switch (action.type) {
     case Types.SET_USER:
       const { user, headers } = action;
-
-      localStorage.setItem(USER_PATH, JSON.stringify({ user, headers }));
 
       return {
         ...state,
@@ -20,11 +21,16 @@ export default (state = initialSate, action) => {
       };
 
     case Types.DELETE_USER:
-      localStorage.removeItem(USER_PATH);
-
-      return { ...initialSate };
+      return initialSate;
 
     default:
       return state;
   }
 };
+
+const authPersistConfig = {
+  storage,
+  key: USER_PATH,
+};
+
+export default persistReducer(authPersistConfig, authReducer);

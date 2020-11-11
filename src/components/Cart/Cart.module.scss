@@ -37,7 +37,14 @@
       }
     }
 
-    .make-purchase {
+    .total-price {
+      align-self: flex-end;
+      color: $scale-gray-4;
+      font-size: 20px;
+      padding: 30px;
+    }
+
+    .checkout {
       margin: 30px;
       position: absolute;
       bottom: 0;

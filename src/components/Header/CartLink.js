@@ -8,7 +8,11 @@ import styles from "./Header.module.scss";
 
 const CartLink = () => {
   const history = useHistory();
-  const cartItems = useSelector(({ cart: { products } }) => products.length);
+  const cartItems = useSelector(({ cart: { products } }) => products);
+  const amountOfProducts = cartItems.reduce(
+    (accumulator, { amount }) => accumulator + amount,
+    0
+  );
 
   const handleOnClick = () => {
     history.push("/cart");
@@ -17,7 +21,7 @@ const CartLink = () => {
   return (
     <div className={styles.cart} onClick={handleOnClick}>
       <img src={CartImage} alt="Cart" />
-      <span>{cartItems}</span>
+      <span>{amountOfProducts}</span>
     </div>
   );
 };

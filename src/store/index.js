@@ -1,16 +1,27 @@
-import { createStore } from "redux";
+import { createStore, applyMiddleware } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
+import { persistStore } from "redux-persist";
 
 import rootReducer from "../reducers";
 
 let store;
 
-if (process.env.NODE_ENV === "development") {
-  store = createStore(rootReducer, composeWithDevTools());
+const setupStore = (initialState = {}) => {
+  if (process.env.NODE_ENV === "development") {
+    store = createStore(
+      rootReducer,
+      initialState,
+      composeWithDevTools(applyMiddleware())
+    );
 
-  window.store = store;
-} else {
-  store = createStore(rootReducer);
-}
+    window.store = store;
+  } else {
+    store = createStore(rootReducer, initialState, applyMiddleware());
+  }
 
-export default store;
+  const persistor = persistStore(store);
+
+  return { store, persistor };
+};
+
+export default setupStore;

@@ -1,11 +1,15 @@
+import storage from "redux-persist/lib/storage";
+import { persistReducer } from "redux-persist";
+
 import Types from "../actions/types";
+import { CART_PRODUCTS_PATH } from "../utils/constants";
 import { filterByProp, getObjectByProp } from "../utils/arrays";
 
 const initialSate = {
   products: [],
 };
 
-export default (state = initialSate, action) => {
+const cartReducer = (state = initialSate, action) => {
   switch (action.type) {
     case Types.ADD_PRODUCT_TO_CART:
       const { amount } = action;
@@ -69,9 +73,16 @@ export default (state = initialSate, action) => {
       };
 
     case Types.CLEAR_CART:
+      return initialSate;
+
     default:
-      return {
-        ...initialSate,
-      };
+      return state;
   }
 };
+
+const cartPersistConfig = {
+  storage,
+  key: CART_PRODUCTS_PATH,
+};
+
+export default persistReducer(cartPersistConfig, cartReducer);
