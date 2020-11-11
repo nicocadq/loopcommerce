@@ -4,7 +4,7 @@ import getHeaders from "../utils/getHeaders";
 
 export const useFetch = (endpoint) => {
   const [data, setData] = useState({});
-  const [loading, setLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [headersData, setHeadersData] = useState({});
 
@@ -24,12 +24,12 @@ export const useFetch = (endpoint) => {
       } catch (e) {
         setError(e);
       } finally {
-        setLoading(false);
+        setIsLoading(false);
       }
     };
 
     fetchResource();
   }, [endpoint]);
 
-  return { data, loading, error, headersData };
+  return { data, isLoading, error, headersData };
 };
