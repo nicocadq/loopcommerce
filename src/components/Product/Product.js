@@ -38,7 +38,7 @@ const Product = ({ description, id, imageURL, name, price }) => {
       data-testid="product"
     >
       <div className={styles.image}>
-        <img src={imageURL} alt={description} />
+        <img src={imageURL} alt={description} loading="lazy" />
       </div>
       <div className={styles.description}>
         <p className={styles.name}>{name}</p>
