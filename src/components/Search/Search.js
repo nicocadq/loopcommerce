@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
@@ -16,27 +16,34 @@ const Search = ({ onSearch }) => {
   const [value, setValue] = useState("");
   const [showLiveSearch, setShowLiveSearch] = useState(false);
   const debouncedValue = useDebounce(200, value);
+  const searchDivNode = useRef();
 
-  const handleOnChange = (e) => {
-    setValue(sanitizer(e.target.value));
+  const handleOnChange = (event) => {
+    setValue(sanitizer(event.target.value));
 
     if (value.length > 2) {
       setShowLiveSearch(true);
     }
   };
 
-  const handleOnBlur = () => {
-    setTimeout(() => {
-      setShowLiveSearch(false);
-    }, 250);
-  };
-
   const handleOnProductClick = (value) => {
     onSearch(value);
   };
 
+  const handleClick = (event) => {
+    if (!searchDivNode.current.contains(event.target)) setShowLiveSearch(false);
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClick);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClick);
+    };
+  }, []);
+
   return (
-    <div className={styles.search} onBlur={handleOnBlur}>
+    <div className={styles.search} ref={searchDivNode}>
       <form>
         <input type="text" onChange={handleOnChange} placeholder="Search" />
         <span className={styles.icon}>
