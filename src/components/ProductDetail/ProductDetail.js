@@ -31,7 +31,7 @@ const ProductDetail = () => {
   };
 
   const handleBuyNow = () => {
-    history.push("/thank-you-page");
+    history.push("/cart");
   };
 
   const handleAddToCart = () => {
