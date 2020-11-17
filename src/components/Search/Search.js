@@ -30,15 +30,16 @@ const Search = ({ onSearch }) => {
     onSearch(value);
   };
 
-  const handleClick = (event) => {
-    if (!searchDivNode.current.contains(event.target)) setShowLiveSearch(false);
+  const handleOnClick = (event) => {
+    if (!searchDivNode.current?.contains(event.target))
+      setShowLiveSearch(false);
   };
 
   useEffect(() => {
-    document.addEventListener("mousedown", handleClick);
+    document.addEventListener("mousedown", handleOnClick);
 
     return () => {
-      document.removeEventListener("mousedown", handleClick);
+      document.removeEventListener("mousedown", handleOnClick);
     };
   }, []);
 
