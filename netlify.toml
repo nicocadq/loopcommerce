@@ -1,0 +1,26 @@
+[build]
+  base = "."
+  publish = "/build"
+  command = "yarn build"
+
+[context.production.environment]
+    YARN_VERSION = "1.22.4"
+
+[context.branch-deploy.environment]
+    YARN_VERSION = "1.22.4"
+
+[context.staging]
+  base = "."
+  publish = "/build"
+  command = "yarn build:staging"
+
+[context.develop]
+  base = "."
+  publish = "/build"
+  command = "yarn build:development"
+  
+[[redirects]]
+  from = "*"
+  to = "/index.html"
+  status = 200
+  
