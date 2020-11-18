@@ -26,7 +26,7 @@ const App = () => {
       <PersistGate persistor={persistor}>
         <BrowserRouter>
           <ErrorBoundary>
-            <Suspense fallback={<Loader />}>
+            <Suspense delayMs={500} fallback={<Loader />}>
               <Switch>
                 <Route path="/product/:id">
                   <ProductDetailPage />
