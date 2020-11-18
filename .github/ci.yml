@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  pull_request:
+    branches:
+      - "master"
+      - "develop"
+      - "staging"
+  push:
+    branches:
+      - "master"
+      - "develop"
+      - "staging"
+      - /^release.*/
+
+jobs:
+  build:
+    name: Run tests
+
+    env:
+      font_awesome_pro_token: ${{ secrets.FONT_AWESOME_PRO_TOKEN }}
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Restore cache
+        uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: node-modules-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            node-modules-
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Run tests
+        run: yarn test
