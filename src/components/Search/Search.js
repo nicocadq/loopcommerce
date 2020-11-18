@@ -44,7 +44,7 @@ const Search = ({ onSearch }) => {
   }, []);
 
   return (
-    <div className={styles.search} ref={searchDivNode}>
+    <div className={styles.search} data-testid="search" ref={searchDivNode}>
       <form>
         <input type="text" onChange={handleOnChange} placeholder="Search" />
         <span className={styles.icon}>

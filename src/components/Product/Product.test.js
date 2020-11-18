@@ -14,23 +14,8 @@ const fakeProduct = {
 };
 
 describe("Product", () => {
-  it("renders component", () => {
-    const { getByTestId } = render(
-      <Product
-        description={fakeProduct.description}
-        id={fakeProduct.id}
-        imageURL={fakeProduct.imageURL}
-        name={fakeProduct.name}
-        price={fakeProduct.price}
-      />
-    );
-
-    const product = getByTestId("product");
-    expect(product).toBeDefined();
-  });
-
-  it("goes to thank you page when Buy Now is clicked", () => {
-    const { getByRole, getByTestId, history } = renderWithRouter(
+  it("add the product to the cart when Buy Now is clicked", () => {
+    const { getByRole, store } = renderWithRouter(
       <Product
         description={fakeProduct.description}
         id={fakeProduct.id}
@@ -44,7 +29,7 @@ describe("Product", () => {
     const buyNowButton = getByRole("button");
     fireEvent.click(buyNowButton);
 
-    expect(history.location.pathname).toBe("/thank-you-page");
+    expect(store.getState().cart.products.includes(fakeProduct)).toBeTruthy();
   });
 
   it("goes to product detail when product is clicked", () => {
