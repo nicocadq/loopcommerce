@@ -5,12 +5,10 @@ on:
     branches:
       - "master"
       - "develop"
-      - "staging"
   push:
     branches:
       - "master"
       - "develop"
-      - "staging"
       - /^release.*/
 
 jobs:
