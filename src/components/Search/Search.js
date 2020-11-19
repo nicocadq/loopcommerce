@@ -27,6 +27,7 @@ const Search = ({ onSearch }) => {
   };
 
   const handleOnProductClick = (value) => {
+    setShowLiveSearch(false);
     onSearch(value);
   };
 
@@ -34,6 +35,8 @@ const Search = ({ onSearch }) => {
     if (!searchDivNode.current?.contains(event.target))
       setShowLiveSearch(false);
   };
+
+  const handleOnSubmit = (event) => event.preventDefault();
 
   useEffect(() => {
     document.addEventListener("mousedown", handleOnClick);
@@ -44,8 +47,8 @@ const Search = ({ onSearch }) => {
   }, []);
 
   return (
-    <div className={styles.search} data-testid="search" ref={searchDivNode}>
-      <form>
+    <div className={styles.search} ref={searchDivNode}>
+      <form onSubmit={handleOnSubmit}>
         <input type="text" onChange={handleOnChange} placeholder="Search" />
         <span className={styles.icon}>
           <FontAwesomeIcon icon={faSearch} />

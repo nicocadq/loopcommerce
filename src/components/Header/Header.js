@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import Logo from "../Logo";
 import Actions from "./Actions";
@@ -8,10 +8,15 @@ import Actions from "./Actions";
 import styles from "./Header.module.scss";
 
 const Header = ({ children }) => {
+  const location = useLocation();
+
+  const reloadHomePage = () =>
+    location.pathname === "/" && window.location.reload(true);
+
   return (
     <header className={styles.header}>
       <div className={styles.container}>
-        <Link to="/">
+        <Link to="/" onClick={reloadHomePage}>
           <Logo />
         </Link>
         {children}
