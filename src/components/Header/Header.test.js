@@ -61,7 +61,7 @@ describe("Header", () => {
     const signOutButton = getByRole("button", { name: "Sign Out" });
     fireEvent.click(signOutButton);
 
-    expect(store.getState().auth).toStrictEqual({ user: null, headers: null });
+    expect(store.getState().auth).toMatchObject({ user: null, headers: null });
   });
 
   it("displays authentication actions when the user isn't logged in", () => {
