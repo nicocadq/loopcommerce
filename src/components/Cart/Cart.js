@@ -13,7 +13,7 @@ const Cart = () => {
   return (
     <>
       <Header />
-      <div className={styles.container}>
+      <main className={styles.container}>
         {products.length > 0 ? (
           <Table products={products} />
         ) : (
@@ -21,7 +21,7 @@ const Cart = () => {
             You don't have products in the cart yet.
           </p>
         )}
-      </div>
+      </main>
       <Footer />
     </>
   );

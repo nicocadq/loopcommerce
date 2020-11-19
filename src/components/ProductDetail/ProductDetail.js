@@ -31,14 +31,12 @@ const ProductDetail = () => {
   };
 
   const handleBuyNow = () => {
-    history.push("/cart");
-  };
-
-  const handleAddToCart = () => {
     dispatch(addProduct(product, quantity));
 
     history.push("/cart");
   };
+
+  const handleAddToCart = () => dispatch(addProduct(product, quantity));
 
   if (!product) return <Redirect to="/" />;
 
