@@ -6,8 +6,8 @@ import { Button } from "../Form";
 export const Container = styled.header`
   background-color: ${({ theme: { colors } }) => colors.scaleWhite};
   display: flex;
-  padding: 5px;
-  height: 86px;
+  padding: 0.5rem;
+  height: 8.6rem;
   width: 100%;
 `;
 
@@ -27,38 +27,39 @@ export const ButtonsGroup = styled.div`
 
   & > button,
   & > div {
-    margin-right: 10px;
+    margin-right: 1rem;
   }
 `;
 
 export const UserContainer = styled.div`
   color: ${({ theme: { colors } }) => colors.scaleGreyishBrown0};
+  font-size: 1.6rem;
   position: relative;
 `;
 
 export const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
-  margin-right: 8px;
+  margin-right: 0.8rem;
 `;
 
 export const OptionsDrop = styled.div`
   background-color: ${({ theme: { colors } }) => colors.scaleWhite};
   border-radius: ${({ theme: { border } }) => border.radius.xs};
-  box-shadow: 0 0 6px 0 ${({ theme: { colors } }) => colors.transparentBlack};
+  box-shadow: 0 0 0.6rem 0 ${({ theme: { colors } }) => colors.transparentBlack};
   position: absolute;
-  top: 30px;
-  right: 5px;
-  width: 150px;
+  top: 3rem;
+  right: 0.5rem;
+  width: 15rem;
   z-index: 2;
 
   &:after {
     border-style: solid;
-    border-width: 0 10px 10px 10px;
+    border-width: 0 1rem 1rem 1rem;
     border-color: transparent transparent
       ${({ theme: { colors } }) => colors.scaleWhite} transparent;
     content: "";
     height: 0;
     position: absolute;
-    right: 10px;
+    right: 1rem;
     top: -25%;
     width: 0;
     z-index: 2;
@@ -74,7 +75,7 @@ export const StyledButton = styled(Button)`
   text-align: right;
 
   &:nth-child(odd) {
-    border-bottom: 1px solid ${({ theme: { colors } }) => colors.scaleGray3};
+    border-bottom: 0.1rem solid ${({ theme: { colors } }) => colors.scaleGray3};
     border-radius: 0;
   }
 `;
@@ -82,7 +83,7 @@ export const StyledButton = styled(Button)`
 export const CartContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  font-size: 14px;
+  font-size: 1.4rem;
   font-weight: 600;
-  width: 25px;
+  width: 2.5rem;
 `;

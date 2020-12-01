@@ -9,6 +9,10 @@ export const globalStyles = ({ theme }) => css`
     padding: 0;
   }
 
+  html {
+    font-size: 62.5%;
+  }
+
   body {
     background-color: ${theme.colors.scaleGray1};
     margin: 0 auto;
@@ -21,13 +25,21 @@ export const globalStyles = ({ theme }) => css`
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    a footer,
+
+    footer,
     header {
       flex-shrink: 0;
     }
 
     main {
       flex-grow: 1;
+    }
+  }
+
+  @media screen and (min-width: ${({ theme: { breakpoints } }) =>
+      breakpoints.md}) {
+    html {
+      font-size: 100%;
     }
   }
 `;
