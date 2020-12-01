@@ -3,16 +3,16 @@ import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
-import styles from "./ServerError.module.scss";
+import { Container, IconContainer } from "./ServerError.styles";
 
 const ServerError = ({ message }) => {
   return (
-    <div className={styles.container} data-testid="server-error">
-      <div className={styles.icon}>
+    <Container data-testid="server-error">
+      <IconContainer>
         <FontAwesomeIcon icon={faTimes} />
-      </div>
-      <p className={styles.text}>{message}</p>
-    </div>
+      </IconContainer>
+      <p>{message}</p>
+    </Container>
   );
 };
 

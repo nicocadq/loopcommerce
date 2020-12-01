@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import Spinner from "../Loader";
 import { useFetch } from "../../hooks";
 
-import styles from "./Search.module.scss";
+import { LiveSearchContainer, ProductContainer } from "./Search.styles";
 
 const LiveSearch = ({ onProductClick, value }) => {
   const {
@@ -17,21 +17,17 @@ const LiveSearch = ({ onProductClick, value }) => {
   };
 
   return (
-    <div className={styles["live-search"]}>
+    <LiveSearchContainer>
       {isLoading ? (
         <Spinner />
       ) : (
         products?.map(({ id, name }) => (
-          <span
-            className={styles.product}
-            onClick={() => handleOnClick(name)}
-            key={id}
-          >
+          <ProductContainer onClick={() => handleOnClick(name)} key={id}>
             {name}
-          </span>
+          </ProductContainer>
         ))
       )}
-    </div>
+    </LiveSearchContainer>
   );
 };
 

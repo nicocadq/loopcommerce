@@ -10,7 +10,21 @@ import Footer from "../Footer";
 
 import { addProduct } from "../../actions/cart";
 
-import styles from "./ProductDetail.module.scss";
+import {
+  Container,
+  ProductContainer,
+  ImageContainer,
+  Wrapper,
+  Info,
+  Name,
+  PriceContainer,
+  Price,
+  Description,
+  QuantityActionsContainer,
+  Amount,
+  ProductActionsContainer,
+  IconContainer,
+} from "./ProductDetail.styles";
 
 const ProductDetail = () => {
   const dispatch = useDispatch();
@@ -43,24 +57,24 @@ const ProductDetail = () => {
   return (
     <>
       <Header />
-      <main className={styles.container}>
-        <div className={styles["product-container"]}>
-          <div className={styles["image-container"]}>
+      <Container>
+        <ProductContainer>
+          <ImageContainer>
             <img src={product.imageURL} alt={product.name} />
-          </div>
-          <div className={styles.wrapper}>
-            <div className={styles.info}>
-              <h3 className={styles.name}>{product.name}</h3>
-              <div className={styles.price}>
-                <span className={styles.number}>
+          </ImageContainer>
+          <Wrapper>
+            <Info>
+              <Name>{product.name}</Name>
+              <PriceContainer>
+                <Price>
                   <span>$</span>
                   {product.price}
-                </span>
+                </Price>
                 <span>/per unit</span>
-              </div>
-              <p className={styles.description}>{product.description} </p>
-            </div>
-            <div className={styles.quantity}>
+              </PriceContainer>
+              <Description>{product.description} </Description>
+            </Info>
+            <QuantityActionsContainer>
               <span>Quantity</span>
               <div>
                 <Button
@@ -69,7 +83,7 @@ const ProductDetail = () => {
                 >
                   +
                 </Button>
-                <span className={styles.amount}>{quantity}</span>
+                <Amount>{quantity}</Amount>
                 <Button
                   buttonType="secondary--black"
                   onClick={decreaseQuantity}
@@ -78,19 +92,19 @@ const ProductDetail = () => {
                   -
                 </Button>
               </div>
-            </div>
-            <div className={styles["product-actions"]}>
+            </QuantityActionsContainer>
+            <ProductActionsContainer>
               <Button onClick={handleBuyNow}>Buy Now</Button>
               <Button buttonType="secondary" onClick={handleAddToCart}>
                 Add To Cart
-                <span className={styles.icon}>
+                <IconContainer>
                   <FontAwesomeIcon icon={faShoppingCart} />
-                </span>
+                </IconContainer>
               </Button>
-            </div>
-          </div>
-        </div>
-      </main>
+            </ProductActionsContainer>
+          </Wrapper>
+        </ProductContainer>
+      </Container>
       <Footer />
     </>
   );

@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import styles from "./ErrorBoundary.module.scss";
+import { Container, Error, Message } from "./ErrorBoundary.styles";
 
 class ErrorBoundary extends React.Component {
   constructor(props) {
@@ -26,12 +26,10 @@ class ErrorBoundary extends React.Component {
 
     if (hasError)
       return (
-        <div className={styles.container}>
-          <p className={styles.message}>
-            There was an unexpected error, please reload
-          </p>
-          {isDevelopmentMode && <p className={styles.error}>{message}</p>}
-        </div>
+        <Container>
+          <Message>There was an unexpected error, please reload</Message>
+          {isDevelopmentMode && <Error>{message}</Error>}
+        </Container>
       );
 
     return children;

@@ -13,7 +13,12 @@ import { useFetch, useWindowSize } from "../../hooks";
 
 import { SCREEN_SM } from "../../utils/breakpoints";
 
-import styles from "./Home.module.scss";
+import {
+  Container,
+  NewArrivalsTitle,
+  Products,
+  PaginationContainer,
+} from "./Home.styles";
 
 const Home = () => {
   const [totalPages, setTotalPages] = useState(1);
@@ -58,13 +63,13 @@ const Home = () => {
       <Header>
         {windowSize.width > SCREEN_SM && <Search onSearch={onSearch} />}
       </Header>
-      <main className={styles.container}>
+      <Container>
         <HighlightSection />
-        <h2 className={styles["new-arrivals-title"]}>New Arrivals</h2>
+        <NewArrivalsTitle>New Arrivals</NewArrivalsTitle>
         {isLoading ? (
           <Spinner />
         ) : (
-          <div className={styles.products}>
+          <Products>
             {(!totalProductsCount || error) && <ServerError />}
             {products?.map(({ description, id, name, price }) => (
               <Product
@@ -76,16 +81,16 @@ const Home = () => {
                 price={price}
               />
             ))}
-          </div>
+          </Products>
         )}
-        <div className={styles.pagination}>
+        <PaginationContainer>
           <Pagination
             onPageChange={onPageChange}
             currentPage={currentPage}
             totalPages={totalPages}
           />
-        </div>
-      </main>
+        </PaginationContainer>
+      </Container>
       <Footer />
     </>
   );

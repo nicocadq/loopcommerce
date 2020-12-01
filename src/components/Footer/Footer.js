@@ -2,28 +2,31 @@ import React from "react";
 
 import Column from "./Column";
 
-import styles from "./Footer.module.scss";
+import {
+  Container,
+  Information,
+  ColumnsContainer,
+  Text,
+} from "./Footer.styles";
 
 const brands = ["Adidas", "Puma", "Reebok", "Nike"];
 
 const Footer = () => {
   return (
-    <footer className={styles.container}>
-      <div className={styles.columns}>
+    <Container>
+      <ColumnsContainer>
         <Column title="Brands" links={brands} />
         <Column title="Brands" links={brands} />
         <Column title="Brands" links={brands} />
         <Column title="Brands" links={brands} />
-      </div>
-      <div className={styles.information}>
-        <p className={styles.copyright}>
-          © 2019 Pixsellz. All rights reserved.
-        </p>
-        <p className={styles.email}>info@pixsellz.io</p>
-        <p className={styles.phone}>879-332-9375</p>
-        <p className={styles.address}>456 Hagenes Gardens Suite 808</p>
-      </div>
-    </footer>
+      </ColumnsContainer>
+      <Information>
+        <Text>© 2019 Pixsellz. All rights reserved.</Text>
+        <Text>info@pixsellz.io</Text>
+        <Text>879-332-9375</Text>
+        <Text>456 Hagenes Gardens Suite 808</Text>
+      </Information>
+    </Container>
   );
 };
 

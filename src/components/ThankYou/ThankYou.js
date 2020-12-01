@@ -9,7 +9,12 @@ import Footer from "../Footer";
 import { clearCart } from "../../actions/cart";
 
 import ShoppingImage from "../../assets/images/shopping.svg";
-import styles from "./ThankYou.module.scss";
+import {
+  Container,
+  ImageContainer,
+  TextContainer,
+  ActionsContainer,
+} from "./ThankYou.styles";
 
 const ThankYou = () => {
   const dispatch = useDispatch();
@@ -26,11 +31,11 @@ const ThankYou = () => {
   return (
     <>
       <Header />
-      <main className={styles.container}>
-        <div className={styles["image-container"]}>
+      <Container>
+        <ImageContainer>
           <img src={ShoppingImage} alt="Shipping" />
-        </div>
-        <div className={styles["text-container"]}>
+        </ImageContainer>
+        <TextContainer>
           <div>
             <h3>Thanks for shopping with us!</h3>
             <p>
@@ -39,13 +44,13 @@ const ThankYou = () => {
             </p>
           </div>
 
-          <div className={styles.actions}>
+          <ActionsContainer>
             <Button buttonType="secondary" onClick={handleContinueShopping}>
               Continue Shopping
             </Button>
-          </div>
-        </div>
-      </main>
+          </ActionsContainer>
+        </TextContainer>
+      </Container>
       <Footer />
     </>
   );

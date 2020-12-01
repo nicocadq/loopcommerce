@@ -3,17 +3,17 @@ import { Link } from "react-router-dom";
 
 import LoginForm from "./Form";
 
-import styles from "./Login.module.scss";
+import { Container, AccountMessage } from "./Login.styles";
 
 const Login = () => {
   return (
-    <main className={styles.container}>
+    <Container>
       <LoginForm />
-      <div className={styles["have-an-account"]}>
+      <AccountMessage>
         Don't have an account?
         <Link to="/signup">Create one here</Link>
-      </div>
-    </main>
+      </AccountMessage>
+    </Container>
   );
 };
 

@@ -10,7 +10,11 @@ import { deleteEmptyProps } from "../../utils/objects";
 import * as _ from "../../helpers";
 import { setUser } from "../../actions/auth";
 
-import styles from "./Login.module.scss";
+import {
+  FormContainer,
+  LogoContainer,
+  ServerErrorContainer,
+} from "./Login.styles";
 
 const validateForm = (values) => {
   const errors = {};
@@ -56,14 +60,14 @@ const LoginForm = () => {
   }, [data, dispatch, headersData, history, state]);
 
   return (
-    <div className={styles.form}>
+    <FormContainer>
       <Form onSubmit={(event) => handleOnSubmit(event, login)}>
-        <div className={styles.logo}>
+        <LogoContainer>
           <Link to="/">
             <Logo />
           </Link>
-        </div>
-        <div className={styles["form-content"]}>
+        </LogoContainer>
+        <div>
           <Form.Input
             error={errors.email}
             id="email"
@@ -85,9 +89,9 @@ const LoginForm = () => {
           />
 
           {serverErrors?.map((error) => (
-            <div className={styles.errors} key={error}>
+            <ServerErrorContainer key={error}>
               <ServerError message={error} />
-            </div>
+            </ServerErrorContainer>
           ))}
 
           <Form.Button type="submit" disabled={loading}>
@@ -95,7 +99,7 @@ const LoginForm = () => {
           </Form.Button>
         </div>
       </Form>
-    </div>
+    </FormContainer>
   );
 };
 

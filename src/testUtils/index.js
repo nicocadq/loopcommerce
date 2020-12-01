@@ -4,6 +4,8 @@ import { Provider } from "react-redux";
 import { render } from "@testing-library/react";
 import { Router } from "react-router-dom";
 import { createMemoryHistory } from "history";
+import { ThemeProvider } from "@emotion/react";
+import theme from "../theme";
 
 import setupStore from "../store";
 
@@ -15,7 +17,9 @@ const renderWithProviders = (ui, { initialState, history = [] } = {}) => {
 
   const Wrapper = ({ children }) => (
     <Provider store={store}>
-      <Router history={historyData}>{children}</Router>
+      <ThemeProvider theme={theme}>
+        <Router history={historyData}>{children}</Router>
+      </ThemeProvider>
     </Provider>
   );
 

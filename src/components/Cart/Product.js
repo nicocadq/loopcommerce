@@ -12,7 +12,7 @@ import {
   decreaseProductAmount,
 } from "../../actions/cart";
 
-import styles from "./Cart.module.scss";
+import { TableCell } from "./Cart.styles";
 
 const Product = ({ amount, id, name, price }) => {
   const dispatch = useDispatch();
@@ -30,10 +30,10 @@ const Product = ({ amount, id, name, price }) => {
   };
 
   return (
-    <tr className={styles.product}>
-      <td className={styles.id}>{id}</td>
-      <td className={styles.name}>{name}</td>
-      <td className={styles["amount-actions"]}>
+    <tr>
+      <TableCell>{id}</TableCell>
+      <TableCell>{name}</TableCell>
+      <TableCell>
         <Button
           buttonType="button"
           onClick={handleDecreaseAmount}
@@ -41,12 +41,12 @@ const Product = ({ amount, id, name, price }) => {
         >
           <span>-</span>
         </Button>
-        <span className={styles.amount}>{amount}</span>
+        <span>{amount}</span>
         <Button buttonType="button" onClick={handleIncreaseAmount}>
           <span>+</span>
         </Button>
-      </td>
-      <td className={styles.price}>${price}</td>
+      </TableCell>
+      <td>${price}</td>
       <td>
         <Button buttonType="button" onClick={handleDeleteProduct}>
           <FontAwesomeIcon icon={faTrash} />

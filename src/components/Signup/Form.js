@@ -9,7 +9,11 @@ import { useForm, useDispatchableFetch } from "../../hooks";
 import * as _ from "../../helpers";
 import { setUser } from "../../actions/auth";
 
-import styles from "./Signup.module.scss";
+import {
+  FormContainer,
+  LogoContainer,
+  ServerErrorContainer,
+} from "./Signup.styles";
 import { deleteEmptyProps } from "../../utils/objects";
 
 const validateForm = (values) => {
@@ -59,15 +63,15 @@ const SignupForm = () => {
   }, [data, dispatch, headersData, history, state]);
 
   return (
-    <div className={styles.form}>
+    <FormContainer>
       <Form onSubmit={(event) => handleOnSubmit(event, signup)}>
-        <div className={styles.logo}>
+        <LogoContainer>
           <Link to="/">
             <Logo />
           </Link>
-        </div>
+        </LogoContainer>
 
-        <div className={styles["form-content"]}>
+        <div>
           <Form.Input
             error={errors.email}
             id="email"
@@ -134,9 +138,9 @@ const SignupForm = () => {
           />
 
           {serverErrors?.map((error) => (
-            <div className={styles.errors} key={error}>
+            <ServerErrorContainer key={error}>
               <ServerError message={error} />
-            </div>
+            </ServerErrorContainer>
           ))}
 
           <Form.Button type="submit" disabled={loading}>
@@ -144,7 +148,7 @@ const SignupForm = () => {
           </Form.Button>
         </div>
       </Form>
-    </div>
+    </FormContainer>
   );
 };
 

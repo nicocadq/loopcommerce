@@ -5,14 +5,12 @@ import { Button } from "./Button";
 import Input from "./Input";
 import Select from "./Select";
 
-import styles from "./Form.module.scss";
+import { StyledForm } from "./Form.styles";
 
 const Form = ({ children, onSubmit }) => {
   return (
     <>
-      <form className={styles.form} onSubmit={onSubmit}>
-        {children}
-      </form>
+      <StyledForm onSubmit={onSubmit}>{children}</StyledForm>
     </>
   );
 };

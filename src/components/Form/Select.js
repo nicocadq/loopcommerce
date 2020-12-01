@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import Option from "./Option";
 
-import styles from "./Form.module.scss";
+import { StyledSelect, Label, RequiredText, InputError } from "./Form.styles";
 
 const Select = ({
   error,
@@ -17,29 +17,25 @@ const Select = ({
 }) => {
   return (
     <>
-      <label className={styles.label} htmlFor={id}>
+      <Label htmlFor={id}>
         {label}
-        {isRequired && (
-          <span className={styles["required-text"]}>(Required)</span>
-        )}
-      </label>
-      <select
-        className={`${error ? styles.error : ""} ${styles.select}`}
+        {isRequired && <RequiredText>(Required)</RequiredText>}
+      </Label>
+      <StyledSelect
+        hasError={error}
         onChange={onChange}
         placeholder={placeholder}
         {...leftoverProps}
       >
-        <Option className={styles.placeholder} value="">
-          {placeholder}
-        </Option>
+        <Option value="">{placeholder}</Option>
 
         {options.map(({ label, value, ...leftoverProps }) => (
           <Option key={value} value={value} {...leftoverProps}>
             {label}
           </Option>
         ))}
-      </select>
-      {error && <p className={styles["input-error"]}>{error}</p>}
+      </StyledSelect>
+      {error && <InputError>{error}</InputError>}
     </>
   );
 };

@@ -5,7 +5,13 @@ import { useHistory } from "react-router-dom";
 import Product from "./Product";
 import { Button } from "../Form";
 
-import styles from "./Cart.module.scss";
+import {
+  TableContainer,
+  StyledTable,
+  TableHead,
+  Checkout,
+  TotalPrice,
+} from "./Cart.styles";
 
 const Table = ({ products }) => {
   const history = useHistory();
@@ -20,15 +26,15 @@ const Table = ({ products }) => {
   };
 
   return (
-    <div className={styles["table-container"]}>
-      <table className={styles.table}>
+    <TableContainer>
+      <StyledTable>
         <thead>
-          <tr className={styles.head}>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Amount</th>
-            <th>PPU</th>
-            <th>Actions</th>
+          <tr>
+            <TableHead>ID</TableHead>
+            <TableHead>Name</TableHead>
+            <TableHead>Amount</TableHead>
+            <TableHead>PPU</TableHead>
+            <TableHead>Actions</TableHead>
           </tr>
         </thead>
         <tbody>
@@ -42,12 +48,12 @@ const Table = ({ products }) => {
             />
           ))}
         </tbody>
-      </table>
-      <span className={styles["total-price"]}>Total Price: ${totalPrice}</span>
-      <div className={styles.checkout}>
+      </StyledTable>
+      <TotalPrice>Total Price: ${totalPrice}</TotalPrice>
+      <Checkout>
         <Button onClick={handleMakePurchase}>Checkout</Button>
-      </div>
-    </div>
+      </Checkout>
+    </TableContainer>
   );
 };
 
