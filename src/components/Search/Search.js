@@ -6,7 +6,7 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import LiveSearch from "./LiveSearch";
 import { useDebounce } from "../../hooks";
 
-import styles from "./Search.module.scss";
+import { SearchContainer, IconContainer } from "./Search.styles";
 
 const sanitizer = (value) => {
   return value.trim();
@@ -47,12 +47,12 @@ const Search = ({ onSearch }) => {
   }, []);
 
   return (
-    <div className={styles.search} ref={searchDivNode}>
+    <SearchContainer ref={searchDivNode}>
       <form onSubmit={handleOnSubmit}>
         <input type="text" onChange={handleOnChange} placeholder="Search" />
-        <span className={styles.icon}>
+        <IconContainer>
           <FontAwesomeIcon icon={faSearch} />
-        </span>
+        </IconContainer>
       </form>
       {showLiveSearch && (
         <LiveSearch
@@ -60,7 +60,7 @@ const Search = ({ onSearch }) => {
           value={debouncedValue}
         />
       )}
-    </div>
+    </SearchContainer>
   );
 };
 

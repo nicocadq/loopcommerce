@@ -1,14 +1,36 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import styles from "./Form.module.scss";
+import {
+  PrimaryButton,
+  SecondaryButton,
+  SecondaryBlackButton,
+} from "./Form.styles";
 
 const Button = ({ buttonType, children, onClick, ...leftoverProps }) => {
-  return (
-    <button className={styles[buttonType]} onClick={onClick} {...leftoverProps}>
-      {children}
-    </button>
-  );
+  switch (buttonType) {
+    case "secondary": {
+      return (
+        <SecondaryButton onClick={onClick} {...leftoverProps}>
+          {children}
+        </SecondaryButton>
+      );
+    }
+    case "secondary--black": {
+      return (
+        <SecondaryBlackButton onClick={onClick} {...leftoverProps}>
+          {children}
+        </SecondaryBlackButton>
+      );
+    }
+    default: {
+      return (
+        <PrimaryButton onClick={onClick} {...leftoverProps}>
+          {children}
+        </PrimaryButton>
+      );
+    }
+  }
 };
 
 Button.defaultProps = {

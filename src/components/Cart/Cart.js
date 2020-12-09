@@ -5,7 +5,7 @@ import Header from "../Header";
 import Footer from "../Footer";
 import Table from "./Table";
 
-import styles from "./Cart.module.scss";
+import { Container } from "./Cart.styles";
 
 const Cart = () => {
   const products = useSelector(({ cart: { products } }) => products);
@@ -13,15 +13,13 @@ const Cart = () => {
   return (
     <>
       <Header />
-      <main className={styles.container}>
+      <Container>
         {products.length > 0 ? (
           <Table products={products} />
         ) : (
-          <p className={styles.empty}>
-            You don't have products in the cart yet.
-          </p>
+          <p>You don't have products in the cart yet.</p>
         )}
-      </main>
+      </Container>
       <Footer />
     </>
   );

@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 
 import CartImage from "../../assets/images/cart.svg";
 
-import styles from "./Header.module.scss";
+import { CartContainer } from "./Header.styles";
 
 const CartLink = () => {
   const history = useHistory();
@@ -19,10 +19,10 @@ const CartLink = () => {
   };
 
   return (
-    <div className={styles.cart} onClick={handleOnClick}>
+    <CartContainer onClick={handleOnClick}>
       <img src={CartImage} alt="Cart" />
       <span>{amountOfProducts}</span>
-    </div>
+    </CartContainer>
   );
 };
 

@@ -5,7 +5,7 @@ import { Link, useLocation } from "react-router-dom";
 import Logo from "../Logo";
 import Actions from "./Actions";
 
-import styles from "./Header.module.scss";
+import { Container, Content } from "./Header.styles";
 
 const Header = ({ children }) => {
   const location = useLocation();
@@ -14,15 +14,15 @@ const Header = ({ children }) => {
     location.pathname === "/" && window.location.reload(true);
 
   return (
-    <header className={styles.header}>
-      <div className={styles.container}>
+    <Container>
+      <Content>
         <Link to="/" onClick={reloadHomePage}>
           <Logo />
         </Link>
         {children}
         <Actions />
-      </div>
-    </header>
+      </Content>
+    </Container>
   );
 };
 

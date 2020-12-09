@@ -9,7 +9,13 @@ import { useAuth } from "../../hooks";
 import { setCurrentProduct } from "../../actions/product";
 import { addProduct } from "../../actions/cart";
 
-import styles from "./Product.module.scss";
+import {
+  ProductContainer,
+  ImageContainer,
+  Description,
+  Name,
+  Price,
+} from "./Product.styles";
 
 const Product = ({ description, id, imageURL, name, price }) => {
   const dispatch = useDispatch();
@@ -32,22 +38,18 @@ const Product = ({ description, id, imageURL, name, price }) => {
   };
 
   return (
-    <div
-      className={styles.product}
-      onClick={handleGoToProduct}
-      data-testid="product"
-    >
-      <div className={styles.image}>
+    <ProductContainer onClick={handleGoToProduct} data-testid="product">
+      <ImageContainer>
         <img src={imageURL} alt={description} loading="lazy" />
-      </div>
-      <div className={styles.description}>
-        <p className={styles.name}>{name}</p>
-        <span className={styles.price}>
+      </ImageContainer>
+      <Description>
+        <Name>{name}</Name>
+        <Price>
           $ <span>{price}</span>
-        </span>
-      </div>
+        </Price>
+      </Description>
       <Button onClick={handleBuyNow}>Add to Cart</Button>
-    </div>
+    </ProductContainer>
   );
 };
 

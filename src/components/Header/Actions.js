@@ -6,7 +6,7 @@ import User from "./User";
 import CartLink from "./CartLink";
 import { useAuth } from "../../hooks";
 
-import styles from "./Header.module.scss";
+import { ButtonsGroup } from "./Header.styles";
 
 const Actions = () => {
   const history = useHistory();
@@ -21,7 +21,7 @@ const Actions = () => {
   };
 
   return (
-    <div className={styles["buttons-group"]}>
+    <ButtonsGroup>
       {isAuthenticated ? (
         <>
           <User />
@@ -35,7 +35,7 @@ const Actions = () => {
           </Button>
         </>
       )}
-    </div>
+    </ButtonsGroup>
   );
 };
 

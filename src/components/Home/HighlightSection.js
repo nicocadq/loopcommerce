@@ -10,34 +10,37 @@ import ServiceCard from "../ServiceCard";
 
 import BannerImage from "../../assets/images/banner.png";
 
-import styles from "./Home.module.scss";
+import { BannerContainer, ServiceContainer } from "./Home.styles";
 
 const HighlightSection = () => {
   return (
     <>
-      <div className={styles["banner-container"]}>
+      <BannerContainer>
         <Banner bannerImage={BannerImage} />
-      </div>
-      <div className={styles["services-container"]}>
+      </BannerContainer>
+      <ServiceContainer>
         <ServiceCard
-          backIconColor="red"
+          iconBackgroundColor="lightRed"
+          iconColor="scaleRed"
           description="Have you finally just gave in to the temptation and read your horoscope"
           icon={faDollarSign}
           title="Reasonable Prices"
         />
         <ServiceCard
-          backIconColor="green"
+          iconBackgroundColor="scaleGreen0"
+          iconColor="scaleGreen1"
           description="Have you finally just gave in to the temptation and read your horoscope"
           icon={faPhone}
           title="Customer Support"
         />
         <ServiceCard
-          backIconColor="blue"
+          iconBackgroundColor="scaleSkyBlue0"
+          iconColor="scaleSkyBlue1"
           description="Have you finally just gave in to the temptation and read your horoscope"
           icon={faTruck}
           title="Express Delivery"
         />
-      </div>
+      </ServiceContainer>
     </>
   );
 };

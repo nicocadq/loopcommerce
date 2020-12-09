@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import styles from "./Form.module.scss";
+import { Label, StyledInput, RequiredText, InputError } from "./Form.styles";
 
 const Input = ({
   error,
@@ -15,21 +15,19 @@ const Input = ({
 }) => {
   return (
     <>
-      <label className={styles.label} htmlFor={id}>
+      <Label htmlFor={id}>
         {label}
-        {isRequired && (
-          <span className={styles["required-text"]}>(Required)</span>
-        )}
-      </label>
-      <input
-        className={`${error ? styles.error : ""} ${styles.input}`}
+        {isRequired && <RequiredText>(Required)</RequiredText>}
+      </Label>
+      <StyledInput
         id={id}
+        hasError={error}
         type={type}
         onChange={onChange}
         placeholder={placeholder}
         {...leftoverProps}
       />
-      {error && <p className={styles["input-error"]}>{error}</p>}
+      {error && <InputError>{error}</InputError>}
     </>
   );
 };

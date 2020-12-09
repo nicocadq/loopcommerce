@@ -1,13 +1,15 @@
 import React, { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch } from "react-redux";
 
-import { Button } from "../Form";
-
 import { deleteUser } from "../../actions/auth";
 
-import styles from "./Header.module.scss";
+import {
+  UserContainer,
+  StyledFontAwesomeIcon,
+  OptionsDrop,
+  StyledButton,
+} from "./Header.styles";
 
 const User = () => {
   const dispatch = useDispatch();
@@ -22,20 +24,20 @@ const User = () => {
   };
 
   return (
-    <div className={styles["user-container"]}>
+    <UserContainer>
       <div onClick={handleOpenDrop}>
-        <FontAwesomeIcon className={styles.icon} icon={faUser} />
+        <StyledFontAwesomeIcon icon={faUser} />
         <span>My account</span>
       </div>
 
       {isOpen && (
-        <div className={styles["options-drop"]}>
-          <Button buttonType="secondary--black" onClick={handleSignOut}>
+        <OptionsDrop>
+          <StyledButton buttonType="secondary--black" onClick={handleSignOut}>
             Sign Out
-          </Button>
-        </div>
+          </StyledButton>
+        </OptionsDrop>
       )}
-    </div>
+    </UserContainer>
   );
 };
 

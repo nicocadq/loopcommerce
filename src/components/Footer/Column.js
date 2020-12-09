@@ -1,20 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import styles from "./Footer.module.scss";
+import { StyledColumn, LinksContainer, Link } from "./Footer.styles";
 
 const Column = ({ links, title }) => {
   return (
-    <div className={styles.column}>
-      <h3 className={styles.title}>{title}</h3>
-      <div className={styles.links}>
+    <StyledColumn>
+      <h3>{title}</h3>
+      <LinksContainer>
         {links.map((link) => (
-          <div className={styles.link} key={link}>
-            {link}
-          </div>
+          <Link key={link}>{link}</Link>
         ))}
-      </div>
-    </div>
+      </LinksContainer>
+    </StyledColumn>
   );
 };
 

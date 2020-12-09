@@ -1,13 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import styles from "./Banner.module.scss";
+import { Container, Image } from "./Banner.styles";
 
 const Banner = ({ bannerImage }) => {
   return (
-    <div className={styles.container}>
-      <img src={bannerImage} alt="Banner" />
-    </div>
+    <Container>
+      <Image src={bannerImage} alt="Banner" />
+    </Container>
   );
 };
 

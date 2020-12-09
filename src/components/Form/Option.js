@@ -1,11 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import styles from "./Form.module.scss";
-
 const Option = ({ children, value, ...leftoverProps }) => {
   return (
-    <option className={styles.option} value={value} {...leftoverProps}>
+    <option value={value} {...leftoverProps}>
       {children}
     </option>
   );
