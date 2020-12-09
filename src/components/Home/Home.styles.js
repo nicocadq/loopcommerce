@@ -10,7 +10,7 @@ export const Container = styled.main`
 `;
 
 export const BannerContainer = styled.div`
-  margin: 20px 0px;
+  margin: 2rem 0rem;
   width: 100%;
 `;
 
@@ -27,10 +27,10 @@ export const ServiceContainer = styled.div`
 
 export const NewArrivalsTitle = styled.h2`
   color: ${({ theme: { colors } }) => colors.scaleBlack};
-  font-size: 28px;
+  font-size: 2.8rem;
   font-weight: 200;
-  letter-spacing: 0.2px;
-  padding: 5px;
+  letter-spacing: 0.02em;
+  padding: 0.5rem;
   margin-left: 5.5%;
 `;
 
@@ -40,7 +40,7 @@ export const Products = styled.div`
   justify-content: center;
 
   & > div {
-    margin: 10px;
+    margin: 1rem;
   }
 `;
 
@@ -48,7 +48,7 @@ export const PaginationContainer = styled.div`
   align-self: center;
   display: flex;
   justify-content: center;
-  margin: 40px;
+  margin: 4rem;
   max-width: ${({ theme: { breakpoints } }) => breakpoints.xl};
   width: 90%;
 
@@ -60,19 +60,19 @@ export const PaginationContainer = styled.div`
   }
 
   & > div > button {
-    border-radius: 0px;
-    border-right: 0px;
-    padding: 5px 8px;
+    border-radius: 0rem;
+    border-right: 0rem;
+    padding: 0.5rem 0.8rem;
   }
 
   & > div > button:first-child {
-    border-radius: ${({ theme: { border } }) => border.radius.xs} 0px 0px
+    border-radius: ${({ theme: { border } }) => border.radius.xs} 0rem 0rem
       ${({ theme: { border } }) => border.radius.xs};
   }
 
   & > div > button:last-child {
-    border-right: 1px solid;
-    border-radius: 0px ${({ theme: { border } }) => border.radius.xs}
-      ${({ theme: { border } }) => border.radius.xs} 0px;
+    border-right: 0.1rem solid;
+    border-radius: 0rem ${({ theme: { border } }) => border.radius.xs}
+      ${({ theme: { border } }) => border.radius.xs} 0rem;
   }
 `;

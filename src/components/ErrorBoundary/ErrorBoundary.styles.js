@@ -13,10 +13,10 @@ export const Message = styled.p`
   background-color: ${({ theme: { colors } }) => colors.scaleRed};
   border-radius: ${({ theme: { border } }) => border.radius.xs};
   color: ${({ theme: { colors } }) => colors.lightRed};
-  padding: 30px;
+  padding: 3rem;
 `;
 
 export const Error = styled.p`
-  padding: 30px;
+  padding: 3rem;
   width: 80%;
 `;

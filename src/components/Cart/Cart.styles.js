@@ -23,25 +23,27 @@ export const StyledTable = styled.table`
 `;
 
 export const TableCell = styled.td`
-  border-bottom: 1px solid ${({ theme: { colors } }) => colors.scaleGray3};
-  height: 30px;
-  padding: 15px;
+  border-bottom: 0.1rem solid ${({ theme: { colors } }) => colors.scaleGray3};
+  font-size: 1.2rem;
+  height: 3rem;
+  padding: 1.5rem;
   text-align: center;
 `;
 
 export const TableHead = styled(TableCell.withComponent("th"))`
+  font-size: 1.5rem;
   text-transform: uppercase;
 `;
 
 export const TotalPrice = styled.span`
   align-self: flex-end;
   color: ${({ theme: { colors } }) => colors.scaleGray4};
-  font-size: 20px;
-  padding: 30px;
+  font-size: 2rem;
+  padding: 3rem;
 `;
 
 export const Checkout = styled.div`
-  margin: 30px;
+  margin: 3rem;
   position: absolute;
   bottom: 0;
 `;

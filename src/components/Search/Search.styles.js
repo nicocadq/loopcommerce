@@ -1,9 +1,9 @@
 import styled from "@emotion/styled";
 
 export const SearchContainer = styled.div`
-  height: 36px;
+  height: 3.6rem;
   position: relative;
-  width: 336px;
+  width: 33.6rem;
 
   & > form {
     display: flex;
@@ -12,31 +12,32 @@ export const SearchContainer = styled.div`
   }
 
   & > form > input {
-    border: 1px solid ${({ theme: { colors } }) => colors.scaleGray3};
-    border-radius: ${({ theme: { border } }) => border.radius.xs} 0 0
+    border: 0.1rem solid ${({ theme: { colors } }) => colors.scaleGray3};
+    border-radius: ${({ theme: { border } }) => border.radius.xs} 0rem 0rem
       ${({ theme: { border } }) => border.radius.xs};
-    padding: 10px;
+    padding: 1rem;
     width: 100%;
     height: 100%;
   }
 
   & > form > input:focus {
     outline: none;
-    border: 2px solid ${({ theme: { colors } }) => colors.scaleSkyBlue1};
-    border-radius: ${({ theme: { border } }) => border.radius.xs} 0 0
+    border: 0.2rem solid ${({ theme: { colors } }) => colors.scaleSkyBlue1};
+    border-radius: ${({ theme: { border } }) => border.radius.xs} 0rem 0rem
       ${({ theme: { border } }) => border.radius.xs};
   }
 `;
 
 export const IconContainer = styled.span`
   background-color: ${({ theme: { colors } }) => colors.scaleSkyBlue1};
-  border: 1px solid ${({ theme: { colors } }) => colors.scaleSkyBlue1};
-  border-radius: 0 ${({ theme: { border } }) => border.radius.xs}
-    ${({ theme: { border } }) => border.radius.xs} 0;
+  border: 0.1rem solid ${({ theme: { colors } }) => colors.scaleSkyBlue1};
+  border-radius: 0rem ${({ theme: { border } }) => border.radius.xs}
+    ${({ theme: { border } }) => border.radius.xs} 0rem;
   color: ${({ theme: { colors } }) => colors.scaleWhite};
   font-family: ${({ theme: { fontFamily } }) => fontFamily.inter};
+  font-size: 1.6rem;
   height: 100%;
-  padding: 8px 6px;
+  padding: 0.8rem 0.6rem;
 `;
 
 export const LiveSearchContainer = styled.div`
@@ -44,17 +45,17 @@ export const LiveSearchContainer = styled.div`
   border-radius: ${({ theme: { border } }) => border.radius.xs};
   display: flex;
   flex-direction: column;
-  min-height: 30px;
-  padding: 5px;
+  min-height: 3rem;
+  padding: 0.5rem;
   position: absolute;
-  top: 40px;
+  top: 4rem;
   width: 100%;
 `;
 
 export const ProductContainer = styled.span`
   border-radius: ${({ theme: { border } }) => border.radius.xs};
   color: ${({ theme: { colors } }) => colors.scaleWhite};
-  padding: 5px;
+  padding: 0.5rem;
   width: 100%;
 
   &:hover {

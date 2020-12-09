@@ -6,13 +6,13 @@ export const Container = styled.main`
   align-content: center;
   flex-wrap: wrap;
   height: 100%;
-  margin-top: 30px;
-  padding: 30px;
+  margin-top: 3rem;
+  padding: 3rem;
 `;
 
 export const ImageContainer = styled.div`
-  margin: 30px;
-  min-width: 320px;
+  margin: 3rem;
+  min-width: 32rem;
   max-width: 40%;
 
   img {
@@ -27,17 +27,17 @@ export const TextContainer = styled.div`
 
   h3 {
     color: ${({ theme: { colors } }) => colors.scaleGreyishBrown1};
-    font-size: 34px;
-    letter-spacing: 1.2px;
+    font-size: 3.4rem;
+    letter-spacing: 0.12rem;
   }
 
   p {
     color: ${({ theme: { colors } }) => colors.scaleGreyishBrown0};
-    letter-spacing: 0.4px;
-    margin-top: 20px;
+    letter-spacing: 0.04rem;
+    margin-top: 2rem;
   }
 `;
 
 export const ActionsContainer = styled.div`
-  margin: 10px 0;
+  margin: 1rem 0;
 `;

@@ -10,7 +10,7 @@ const StyledButton = styled.button`
   border: none;
   border-radius: ${({ theme: { border } }) => border.radius.xs};
   font-family: ${({ theme: { fontFamily } }) => fontFamily.inter};
-  padding: 10px;
+  padding: 1rem;
 
   &:disabled {
     opacity: 0.5;
@@ -19,30 +19,30 @@ const StyledButton = styled.button`
 
 export const PrimaryButton = styled(StyledButton)`
   background-color: ${({ theme: { colors } }) => colors.scaleSkyBlue1};
-  border: 1px solid ${({ theme: { colors } }) => colors.scaleSkyBlue1};
+  border: 0.1rem solid ${({ theme: { colors } }) => colors.scaleSkyBlue1};
   color: ${({ theme: { colors } }) => colors.scaleWhite};
 `;
 
 export const SecondaryButton = styled(StyledButton)`
-  border: 1px solid ${({ theme: { colors } }) => colors.scaleSkyBlue1};
+  border: 0.1rem solid ${({ theme: { colors } }) => colors.scaleSkyBlue1};
   color: ${({ theme: { colors } }) => colors.scaleSkyBlue1};
 `;
 
 export const SecondaryBlackButton = styled(StyledButton)`
-  border: 1px solid ${({ theme: { colors } }) => colors.lightBlack};
+  border: 0.1rem solid ${({ theme: { colors } }) => colors.lightBlack};
   color: ${({ theme: { colors } }) => colors.lightBlack};
 `;
 
 export const StyledInput = styled.input`
   background-color: ${({ hasError, theme: { colors } }) =>
     hasError ? colors.lightRed : colors.transparentGray};
-  border: 1px solid
+  border: 0.1rem solid
     ${({ hasError, theme: { colors } }) =>
       hasError ? colors.scaleRed : colors.scaleGray2};
   border-radius: ${({ theme: { border } }) => border.radius.xs};
-  height: 40px;
-  padding: 10px 16px;
-  width: 270px;
+  height: 4rem;
+  padding: 1em 1.6em;
+  width: 27rem;
 
   &::placeholder {
     color: ${({ hasError, theme: { colors } }) =>
@@ -52,8 +52,8 @@ export const StyledInput = styled.input`
 
 export const InputError = styled.p`
   color: ${({ theme: { colors } }) => colors.scaleRed};
-  font-size: 12px;
-  margin-top: 5px;
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
 `;
 
 export const Label = styled.label`
@@ -63,9 +63,9 @@ export const Label = styled.label`
 
 export const RequiredText = styled.span`
   color: ${({ theme: { colors } }) => colors.scaleGray4};
-  font-size: 14px;
+  font-size: 1.4rem;
   font-style: italic;
-  margin-left: 5px;
+  margin-left: 0.5rem;
 `;
 
 export const StyledSelect = styled.select`
@@ -74,7 +74,7 @@ export const StyledSelect = styled.select`
   background: url("../../assets/images/arrow-select.svg")
     ${({ hasError, theme: { colors } }) =>
       hasError ? colors.lightRed : colors.transparentGray}
-    no-repeat calc(100% - 10px) !important;
+    no-repeat calc(100% - 1rem) !important;
 
   border: 1px solid
     ${({ hasError, theme: { colors } }) =>
@@ -82,7 +82,7 @@ export const StyledSelect = styled.select`
   border-radius: ${({ theme: { border } }) => border.radius.xs};
   color: ${({ hasError, theme: { colors } }) =>
     hasError ? colors.scaleRed : colors.transparentBlue};
-  height: 40px;
-  padding: 10px 16px;
+  height: 4rem;
+  padding: 1em 1.6em;
   width: 100%;
 `;

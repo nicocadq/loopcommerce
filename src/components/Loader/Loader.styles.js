@@ -9,11 +9,11 @@ export const Wrapper = styled.div`
 `;
 
 export const StyledLoader = styled.div`
-  border: 16px solid ${({ theme: { colors } }) => colors.scaleGray1};
-  border-top: 16px solid ${({ theme: { colors } }) => colors.scaleSkyBlue1};
+  border: 1.6rem solid ${({ theme: { colors } }) => colors.scaleGray1};
+  border-top: 1.6rem solid ${({ theme: { colors } }) => colors.scaleSkyBlue1};
   border-radius: 50%;
-  width: 120px;
-  height: 120px;
+  width: 12rem;
+  height: 12rem;
   animation: spin 1s linear infinite;
 
   @keyframes spin {

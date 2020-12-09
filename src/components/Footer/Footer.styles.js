@@ -6,9 +6,9 @@ export const Container = styled.footer`
   flex-direction: column;
   align-items: center;
   flex-wrap: wrap;
-  font-size: 15px;
-  padding-top: 30px;
-  min-height: 300px;
+  font-size: 1.5rem;
+  padding-top: 2em;
+  min-height: 20em;
 `;
 
 export const ColumnsContainer = styled.div`
@@ -32,18 +32,18 @@ export const LinksContainer = styled.div`
 `;
 
 export const Link = styled.div`
-  margin-top: 10px;
+  margin-top: 1rem;
 `;
 
 export const Information = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  min-height: 30px;
-  padding: 30px;
+  min-height: 3rem;
+  padding: 3rem;
   width: 90%;
 `;
 
 export const Text = styled.p`
-  margin: 10px;
+  margin: 1rem;
 `;
